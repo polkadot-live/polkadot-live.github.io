@@ -125,8 +125,8 @@ const config: Config = {
           title: 'Ecosystem',
           items: [
             {
-              label: 'Developer Console',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Polkadot Cloud',
+              href: 'https://polkadot.cloud/',
             },
             {
               label: 'Staking Dashboard',
