@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 sidebar_label: Workspaces
+description: Workspace settings documentation.
 ---
 
 # Workspaces Settings

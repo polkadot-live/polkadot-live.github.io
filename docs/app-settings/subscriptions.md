@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 sidebar_label: Subscriptions
+description: Subscription settings documentation.
 ---
 
 # Subscription Settings

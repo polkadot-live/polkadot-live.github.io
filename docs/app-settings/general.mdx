@@ -1,0 +1,67 @@
+---
+sidebar_position: 1
+sidebar_label: General
+description: General settings documentation.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# General Settings
+
+This page documents application settings found under the `General` category in the settings window.
+
+<Img url="/img/general.png" />
+
+## Docked Window
+
+This setting controls whether the main window is free floating and resizable, or in a fixed size and position on the screen.
+
+### Turned On
+
+The main window is docked under the Polkadot Live application icon with a fixed size. You are unable to freely drag or resize the main window.
+
+### Turned Off
+
+The main window is free floating and resizable in the vertical direction. You are free to drag the window to an arbitrary location on the screen. You are also able to resize the main window in the vertical direction by clicking and dragging the horizontal window borders.
+
+## Enable Polkassembly Data
+
+This setting enables the Polkassembly API, which is used to fetch OpenGov proposal metadata that is subsequently rendered in the OpenGov window. It is recommended to enable this setting if you wish to browse and subscribe to OpenGov referenda. Turning this setting off will speed up the rendering of OpenGov referenda listings, but the listings will not include important proposal metadata.
+
+### Turned On
+
+The OpenGov window's referenda listings will display readable proposal titles and descriptions, the same of which can be seen on OpenGov portals including Polkassembly and Subsquare. You are able to quickly read proposal metadata directly within Polkadot Live, without having to navigate to an external OpenGov portal website.
+
+### Turned Off
+
+When this setting is disabled, the Polkassembly API will not be used to fetch proposal metadata. As a result, the OpenGov window's referenda listings will only render "decentralized" data - information fetched from the respective blockchain network - including the proposal ID and its respective track. You will need to click on an portal link to view a proposal's metadata on an external OpenGov website.
+
+## Show On All Workspaces
+
+Controls whether to display Polkadot Live windows on all workspaces in your OS desktop environment.
+
+### Turned On
+
+The Polkadot Live main window and all child windows will be rendered in every OS workspace.
+
+### Turned On
+
+The Polkadot Live main window and all child windows will be rendered in a single workspace - the one in which Polkadot Live was opened.
+
+## Silence OS Notifications
+
+This setting controls whether to globally enable or disable native OS notifications within Polkadot Live. It is recommended to temporarily turn this setting on if you don't want to be disturbed by native OS notifications being rendered in your desktop environment.
+
+:::info
+
+Turning on this setting will **not** disable native OS notifications when clicking subscription preview buttons. The goal of one-shots is to preview both the native OS notification and it's corresponding Polkadot Live event together.
+
+:::
+
+### Turned On
+
+Native OS notifications will not be shown when a new event is received for active subscriptions.
+
+### Turned Off
+
+Native OS notifications are enabled for active subscriptions application-wide. Independent subscription settings will dictates whether to show native OS notifications for it or not.

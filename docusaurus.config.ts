@@ -42,7 +42,10 @@ const config: Config = {
     locales: ['en'],
   },
 
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    'docusaurus-plugin-image-zoom',
+  ],
 
   presets: [
     [
@@ -145,6 +148,16 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    zoom: {
+      selector: '.markdown :not(em) > img',
+      config: {
+        // Options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)',
+        }
+      }
+    }
   } satisfies Preset.ThemeConfig,
 };
 
