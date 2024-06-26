@@ -1,0 +1,49 @@
+---
+sidebar_position: 3
+sidebar_label: Backup
+description: Backup settings documentation.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# Backup Settings
+
+:::note
+
+We plan to expand Polkadot Live's backup features in the near future to also support susbcription and event data.
+
+:::
+
+This page will document application settings found under the `Backup` category in the settings window.
+
+<Img url="/img/backup.png" />
+
+## Export Accounts
+
+Clicking on the `Export` button will open a native OS dialog box, allowing you to save a file that stores your Polkadot Live account data in JSON format.
+
+Use the corresponding "Import" button in the settings window to select the exported data file and restore your accounts in Polkadot Live.
+
+:::note
+
+This feature currently supports **Vault** and **Read-Only** accounts.
+
+:::
+
+## Import Accounts
+
+Clicking on the `Import` button will open a native OS dialog box, allowing you to select a data file previously exported from Polkadot Live. 
+
+After processing is complete, imported accounts will be available to manage in the **Accounts** window. From there, you can add the account to the main window UI and turn on subscriptions in the normal manner.
+
+:::info
+
+If the data file contains accounts that are already managed by Polkadot Live, those accounts will simply be ignored during the import process. Only accounts that Polkadot Live is not aware of will be imported.
+
+:::
+
+:::note
+
+This feature currently supports **Vault** and **Read-Only** accounts.
+
+:::
