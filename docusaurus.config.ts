@@ -67,13 +67,13 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    // TODO: Replace with your project's social card
+    //image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Polkadot Live',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Polkadot Live Logo',
+        src: 'img/icon.png',
       },
       items: [
         {
