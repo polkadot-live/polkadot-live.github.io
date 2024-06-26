@@ -54,7 +54,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/polkadot-live/polkadot-live.github.io/tree/main/',
         },
         blog: false,
         theme: {
@@ -99,39 +99,47 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Home',
               to: '/',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'GitHub',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'App',
+              href: 'https://github.com/polkadot-live/polkadot-live-app',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Docs',
+              href: 'https://github.com/polkadot-live/polkadot-live.github.io',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Organization',
+              href: 'https://github.com/polkadot-live',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'Ecosystem',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Developer Console',
+              href: 'https://discordapp.com/invite/docusaurus',
+            },
+            {
+              label: 'Staking Dashboard',
+              href: 'https://staking.polkadot.cloud',
+            },
+            {
+              label: 'w3ux Library',
+              href: 'https://github.com/w3ux/w3ux-library',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Polkadot Live Authors & Contributors.`,
     },
     prism: {
       theme: prismThemes.github,
