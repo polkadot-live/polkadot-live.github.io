@@ -62,23 +62,28 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
+    // TODO: Replace with your project's social card
+    //image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Polkadot Live',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Polkadot Live Logo',
+        src: 'img/icon.png',
       },
       items: [
+        //{
+        //  type: 'docSidebar',
+        //  sidebarId: 'tutorialSidebar',
+        //  position: 'left',
+        //  label: 'Tutorial',
+        //},
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/polkadot-live',
           label: 'GitHub',
           position: 'right',
         },
