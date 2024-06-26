@@ -28,6 +28,9 @@ const config: Config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
+  // Configure the static directory sources.
+  staticDirectories: ['static'],
+
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
@@ -73,7 +76,7 @@ const config: Config = {
       title: 'Polkadot Live',
       logo: {
         alt: 'Polkadot Live Logo',
-        src: 'img/icon.png',
+        src: 'img/logo.png',
       },
       items: [
         //{
