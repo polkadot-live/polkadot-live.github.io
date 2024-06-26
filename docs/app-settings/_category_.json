@@ -1,0 +1,9 @@
+{
+    "label": "App Settings",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "Documentation of the Polkadot Live application settings."
+    }
+  }
+  
