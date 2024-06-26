@@ -1,0 +1,67 @@
+---
+sidebar_position: 2
+sidebar_label: Subscriptions
+description: Subscription settings documentation.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# Subscriptions Settings
+
+This page will document application settings found under the `Subscriptions` category in the settings window.
+
+<Img url="/img/subscriptions.png" />
+
+## Enable Automatic Subscriptions
+
+Control whether or not to automatically subscribe to all the available subscriptions for an account after importing it. Enable this setting if you would like to catch every possible subscription event Polkadot Live has to offer for the account, and don't want to manage subscriptions manually.
+
+### Turned On
+
+All available subscriptions for an account will be enabled after importing it. For example, if the imported account has joined a nomination pool, all nomination pool subscriptions will be turned on automatically.
+
+### Turned Off
+
+No subscriptions will be turned on upon importing accounts. You are required to turn on subscriptions manually via the account's subscription settings in the main window.
+
+## Keep Outdated Events
+
+Control whether to keep old event items listed in the UI upon receiving a new event item of the same subscription.
+
+:::info
+
+Rest assured that old events are considered on an account basis. This means that if the accounts of `Alice` and `Bob` have both turned on the balance subscription and Bob receives a new event item for that subscription, only Bob's old balance event items will be removed.
+
+:::
+
+### Turned On
+
+Old event items will be kept and managed by the application. You are able to track past subscription events. No old event items will be lost when a new one is received.
+
+### Turned Off
+
+Outdated event items will be removed when a new event item of the same subscription is received for an account. 
+
+For example, if an account's free balance changes and Polkadot Live receives a new balance notification, old balance event items will be removed from the UI, providing its linked to the same account. Only the newest event items for an account's subscriptions will be kept by the application.
+
+## Show Debugging Subscriptions
+
+Control whether to display an optional category labeled `Debugging` under the **Subscriptions** tab in the main window.
+
+### Turned On
+
+An optional category called `Debugging` will be added to the main window's **Subscriptions** tab. It will always be displayed as the last category, allowing your imported accounts and OpenGov subscribed-to chains to be listed above.
+
+You can select a chain within the `Debugging` category to show a couple of "debugging" subscriptions that you can enable. Use these subscriptions to check whether your system is able to retrieve up-to-date information from the respective blockchain network.
+
+Debugging subscriptions allow you to receive the latest **timestamp** and **current slot** for the selected network.
+
+:::info
+
+As discussed in the documentation's **Subscriptions** section, debugging subscriptions will only render event items, and will **not** show native OS notifications.
+
+:::
+
+### Turned Off
+
+The `Debugging` category will not be rendered in the main window's **Subcsriptions** tab.
