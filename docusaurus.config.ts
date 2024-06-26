@@ -76,14 +76,14 @@ const config: Config = {
         src: 'img/icon.png',
       },
       items: [
+        //{
+        //  type: 'docSidebar',
+        //  sidebarId: 'tutorialSidebar',
+        //  position: 'left',
+        //  label: 'Tutorial',
+        //},
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/polkadot-live',
           label: 'GitHub',
           position: 'right',
         },
