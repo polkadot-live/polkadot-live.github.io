@@ -1,0 +1,74 @@
+---
+sidebar_position: 1
+sidebar_label: Accounts
+description: Documentation for account subscriptions.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# Account Subscriptions
+
+## Balances
+
+<Img url="/img/subscriptions/balances.png" maxHeight="125px" />
+
+### Transfers
+
+Get notified when any part of an account's balance changes.
+
+A Polkadot balance is comprised of a **free**, **reserved**, and **frozen** balance. Regular transfers to and from other addresses will change your free balance, whilst staking and voting activities may change your reserved and frozen balances, respectively.
+
+## Nomination Pools
+
+<Img url="/img/subscriptions/nomination-pools.png" maxHeight="395px" />
+
+### Commission Change
+
+Get notified when your nomination pool's commission setting has changed.
+
+A larger commission percentage may indicate that you will receive less rewards, as the nomination pool will take a bigger cut of rewards at the end of each era.
+
+### Pool Name Changed
+
+Get notified when your nomination pool's name has changed upon a new era starting.
+
+### Pool State Changed
+
+Get notified when your nomination pool has changed its state setting upon a new era starting.
+
+The **"Open"** state means that anyone can join the pool and no members can be permissionlessly removed.
+
+The **"Blocked"** state means that no members can join the pool, and some admin roles can permissionlessly kick (unbond) members.
+
+The **"Destroying"** state means that no members can join the pool, and all members can be permissionlessly removed
+
+### Roles Changed
+
+Get notified when your nomination pool has changed its roles setting upon a new era starting.
+
+### Unclaimed Rewards
+
+Get notified when you have unclaimed nomination pool rewards upon a new era starting.
+
+
+## Nominating
+
+<Img url="/img/subscriptions/nominating.png" maxHeight="260px" />
+
+### Commission Changed
+
+Get notified when any of your nominated validators have changed their commission setting upon a new era starting.
+
+You will be notified when you have nominated new validators in the new era, and when any validators that you nominated in the previous era have changed their commision setting.
+
+### Exposure Changed
+
+Get notified when your nominating exposure changes when a new era starts.
+
+Your address is "exposed" in the current era when at least one of your nominated validators are selected to actively participate in consensus, and thus may have a chance of receiving rewards.
+
+### Pending Payouts
+
+Get notified when you have pending payouts from your nomiated validators.
+
+Polkadot Live will process the last 7 eras in order to calculate any pending payouts. This calculation may take a minute, depending on your network connection speed.
