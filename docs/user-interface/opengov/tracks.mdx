@@ -1,0 +1,55 @@
+---
+sidebar_position: 2
+sidebar_label: Origins and Tracks
+description: Origins and tracks screen UI documentation.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# Origins and Tracks Screen
+
+Displays origin and track information for the selected blockchain network.
+
+<Img url="/img/ui/ui-opengov-tracks-01.png" maxHeight="400px" />
+
+## 1. Sorting controls
+
+Use the sorting controls to customize how the origin data is listed. The sorting controls row comprises the following buttons (documented from left to right):
+
+- __Back__<br />
+  Go back to the OpenGov window home screen.
+
+- __ID Ascend__<br />
+  Render origins in ascending or ascending order. Origin IDs are compared to determine the sorting order.
+
+
+## 2. Sticky headings
+
+Table column titles are rendered as sticky headings, meaning the headings will "stick" to the top of the window as it is being scrolled.
+
+## 3. Origin and track row
+
+An origin row includes the following items (from left to right):
+
+- __Origin ID__<br />
+  The origin ID that is defined as a constant on the blockchain network.
+
+- __Origin Name__<br />
+  The readable origin name that is defined as a constant on the blockchain network.
+
+- __Decision Deposit__<br />
+  Amount of the native token that needs depositing before a referendum can enter its decision period.
+
+- __Max. Deciding__<br />
+  Maximum amount of referenda that can be active and ongoing with the respective origin.
+
+- __Metrics__<br />
+  A button that will expand and collapse additional information related to the origin.
+
+<Img url="/img/ui/ui-opengov-tracks-02.png" maxHeight="126px" />
+
+## 4. Footer
+
+The left side of the footer displays the selected blockchain network along with how many tracks that network has defined.
+
+Help buttons are included on the right hand side which will open a help overlay when clicked. Feel free to use the help overlay to learn about OpenGov terms in more detail.
