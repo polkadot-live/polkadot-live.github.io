@@ -1,0 +1,36 @@
+---
+sidebar_position: 3
+sidebar_label: Debugging
+description: Debugging subscriptions UI documentation.
+---
+
+import { Img } from "@site/src/components/Img";
+import HelpIconPartial from './partials/_help-icon.mdx';
+import SubscriptionTitlePartial from './partials/_subscription-title.mdx';
+import SubscriptionTogglePartial from './partials/_subscription-toggle.mdx';
+
+# Debugging Subscriptions UI
+
+## Overview
+
+Debugging subscriptions are displayed in Polkadot Live if the [Show Debugging Subscriptions](../../../../app-settings/subscriptions) setting is enabled within the settings window. The goal of enabling a debugging subscription is to confirm that your system is able to connect to a blockchain network, subscribe to its latest blocks, and display appropriate event items.
+
+Refer to the [Debugging Subscriptions](../../../../subscriptions/debugging) documentation to discover which debugging subscriptions are provided.
+
+## User Interface
+
+Debugging subscriptions can only be toggled on or off. When turned on, an event item is rendered under the main window's **Events** tab when a new block is received from the subscription's respective blockchain network. Note that native OS notifications are not enabled for debugging subscriptions.
+
+<Img url="/img/ui/ui-main-subscription-debug.png" maxHeight="120px" />
+
+### 1. Help Icon
+
+<HelpIconPartial />
+
+### 2. Subscription Title
+
+<SubscriptionTitlePartial />
+
+### 3. Subscription Toggle
+
+<SubscriptionTogglePartial />
