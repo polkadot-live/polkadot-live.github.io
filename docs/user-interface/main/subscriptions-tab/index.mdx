@@ -4,16 +4,31 @@ sidebar_label: Subscriptions Tab
 description: Subscriptions tab UI documentation.
 ---
 
+import { Img } from "@site/src/components/Img"
 import DocCardList from '@theme/DocCardList';
 
 # Subscriptions Tab
 
-TODO: Text
+<Img url="/img/ui/ui-main-subscriptions-tab.png" maxHeight="500px" />
 
 ## Overview
 
-TODO: Text
+The **Subscription** tab in the main window is responsible for listing:
+- **Imported accounts** that are categorized by their respective blockchain network.
+- **OpenGov** networks with active referenda subscriptions - being either Polkadot, Kusama, or both.
+- An optional **Debugging** category that lists networks with available debugging subscriptions.
+
+
+:::info
+
+When Polkadot Live was in its early development stages, the **Subscriptions** tab only listed imported accounts. As OpenGov features were integrated, this tab naturally evolved to became a place for listing categorized "abstract items" that have subscriptions ready to be turned on and off - Ie. Accounts, networks with active referenda added via the OpenGov window, as well as networks with available debugging subscriptions.
+
+Visually, the Subscriptions tab is easy to understand - It allows you to open subscription settings for accounts and OpenGov referenda. Conceptually, it may be more difficult to grasp. As Polkadot Live continues its development, an effort will be made to make this conceptualization clearer.
+
+:::
 
 ## Screens
+
+Subscription tab UIs are documented in the following pages:
 
 <DocCardList />
