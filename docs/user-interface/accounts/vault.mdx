@@ -1,0 +1,64 @@
+---
+sidebar_position: 2
+sidebar_label: Vault
+description: Accounts window vault screen UI documentation.
+---
+
+import { Img } from "@site/src/components/Img";
+import AccountRowPartial from './_account-row.mdx';
+
+# Vault Screen
+
+Import and Manage addresses via the Polkadot Vault iOS and Android application.
+
+## No Imported Accounts
+
+The following screen will be displayed if you have no accounts imported using the Polkadot Vault application. This screen will present a simple UI to import a new address using Polkadot Vault, or go back to the home screen.
+
+<Img url="/img/ui/ui-accounts-vault-01.png" maxHeight="400px" />
+
+### 1. Back button
+
+Click this button to return to the **Home** screen.
+
+### 2. Import button
+
+Click this button to enable your computer's camera and receive camera feedback in an overlay. After your camera has been enabled, follow these steps to import an address managed by Polkadot Vault: 
+
+- Open Polkadot Vault on your mobile device and select an address QR code that you wish to import.
+- With the QR code being displayed on your mobile device, hold it next to your computer's camera and make sure the entire QR code fits within the camera viewport.
+- Polkadot Live will automatically detect the QR code and derive the associated encoded address.
+- The camera overlay will close and Polkadot Live will process the address accordingly.
+
+The new address will be listed on the Vault screen, as well as under the __Subscriptions__ tab in the main window. From here, you can manage subscriptions for the address.
+
+## Imported Accounts
+
+The following screen will be displayed if you have one or more addresses imported using Polkadot Vault. Use this screen to import more accounts with Polkadot Vault, and manage existing accounts.
+
+<Img url="/img/ui/ui-accounts-vault-02.png" maxHeight="476px" />
+
+### 1. Header
+
+The header displays the following items:
+
+- __Back Button__<br />
+  Return to the accounts window home screen.
+
+- __Vault Accounts__<br />
+  Label identifying which accounts screen is being rendered.
+
+- __Import Another Account__<br />
+  Click this label to open the camera overlay and import another address using Polkadot Vault.
+
+### 2. Account groups
+
+Accounts are grouped by their respective network and listed in alphabetical order using the account name. Account groups can be collapsed and expanded by clicking on its header item. Accounts groups will be displayed in the specific order of Polkadot, Kusama and finally Westend.
+
+### 3. Account row
+
+<AccountRowPartial />
+
+### 4. Footer
+
+Displays the total amount of imported Polkadot Vault accounts.

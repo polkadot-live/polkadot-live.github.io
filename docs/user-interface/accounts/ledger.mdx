@@ -1,0 +1,59 @@
+---
+sidebar_position: 3
+sidebar_label: Ledger
+description: Accounts window ledger screen UI documentation.
+---
+
+import { Img } from "@site/src/components/Img";
+import AccountRowPartial from './_account-row.mdx';
+
+# Ledger Screen
+
+Import and Manage addresses fetched from a Ledger hardware wallet.
+
+## No Imported Accounts
+
+The following screen will be displayed if you have no Ledger accounts imported. If a Ledger hardware wallet is connected to your system via USB, Polkadot Live will detect and import its Polkadot address. You can also return to the home screen by clicking the "back" button.
+
+:::note
+
+Your Ledger hardware wallet must have the Polkadot application installed for this import method to work.
+
+:::
+
+<Img url="/img/ui/ui-accounts-ledger-01.png" maxHeight="400px" />
+
+### 1. Back button
+
+Click this button to return to the **Home** screen.
+
+## Imported Accounts
+
+The following screen will be displayed if you have a Ledger hardware wallet address imported. Use this screen to manage your imported ledger account.
+
+<Img url="/img/ui/ui-accounts-ledger-02.png" maxHeight="400px" />
+
+### 1. Header
+
+The header displays the following items:
+
+- __Back Button__<br />
+  Return to the accounts window home screen.
+
+- __Ledger Accounts__<br />
+  Label identifying which accounts screen is being rendered.
+
+- __Get Another Account (Coming Soon)__<br />
+  Currently disabled. An upcoming feature allowing you to fetch more addresses from the ledger device.
+
+### 2. Account groups
+
+Accounts are grouped by their respective network and listed in alphabetical order using the account name. Account groups can be collapsed and expanded by clicking on its header item. Accounts groups will be displayed in the specific order of Polkadot, Kusama and finally Westend.
+
+### 3. Account row
+
+<AccountRowPartial />
+
+### 4. Footer
+
+Displays the total amount of imported Ledger accounts.
