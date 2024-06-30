@@ -8,14 +8,77 @@ import { Img } from "@site/src/components/Img"
 
 # Overview
 
+This page documents the main window's "global" user interface components that are always displayed. These components include the header, tabs row and footer.
+
 ## UI Items
 
 <Img url="/img/ui/ui-main-01.png" maxHeight="500px" />
+
+### 1. Header
+
+The header is comprised of two items that are rendered on the right hand side:
+
+- __Dock__ button: Click this button to toggle the [Docked Window](../../app-settings//general.mdx) application setting. Docking the main window will display it under the application icon at a fixed size and position. Undocking the main window allows you to freely drag it around the screen, and vertically resize it.
+
+:::note
+
+Clicking the main window's __Dock__ button will automatically update the settings window's corresponding toggle switch.
+
+:::
+
+- __Cog Menu__: Click the cog icon to open a submenu (documented below). Use this menu to open Polkadot Live's dedicated windows.
+
+### 2. Events tab
+
+This tab renders event items that are generated upon a subscription callback being executed. For example, if an account has the __Balances__ subscription enabled, a new event item will be rendered under this tab when the account balance has changed.
+
+Event items can be rendered as a single list, or grouped according to its category. Please refer to the dedicated __Events Tab__ documentation for a detailed explanation of the user interface.
+
+### 3. Subscriptions tab
+
+This tab allows you to manage subscriptions. It will list imported accounts (grouped by network) and OpenGov networks with active subscriptions by default. PLease refer to the dedicated [Subscriptions Tab](./subscriptions-tab/index.mdx) documentation for more in-depth explanations.
+
+### 4. Footer
+
+Refer to the documentation below to understand the main window's footer component.
 
 ## Cog Menu
 
 <Img url="/img/ui/ui-main-cog-menu.png" maxHeight="250px" />
 
+As mentioned above, the cog menu allows you to open dedicated Polkadot Live window to do things like manage accounts, subscribe to OpenGov referenda, and application manage settings. It also displays a couple of buttons which are documented below.
+
+- __Accounts__<br />
+  Opens the Polkadot Live [Accounts Window](../accounts/index.mdx). Import and manage your blockchain addresses from this window.
+
+- __OpenGov__<br />
+  Opens the Polkadot Live [OpenGov Window](../opengov/index.mdx). Browse and subscribe to referenda, view treasury stats, and accomplish other OpenGov related features in this window.
+
+- __Settings__<br />
+  Opens the Polkadot Live [Settings Window](../settings.mdx). Use this window to manage global Polkadot Live application settings.
+
+- __Disconnect__<br />
+  Click this button to toggle between __offline__ and __online__ mode within Polkadot Live. Disconnecting will temporarily disable any websocket connections to supported blockchain networks, as well as disable any feature that requires an internet connection - including turning on subscriptions.
+
+  The Polkadot Live UI will reflect its online mode. As a result, certain UI features will be disabled in offline mode, such as toggling subscriptions, importing accounts and fetching OpenGov referenda.
+
+  Clicking __Connect__ will re-establish websocket connections to blockchain networks, and re-initialize the application with the latest blockchain data.
+
+- __Silence__<br />
+  Click this button to toggle the [Silence OS Notifications](../../app-settings/general.mdx) application setting. When enabled, native OS notifications will not be shown when an active subscription is triggered.
+
 ## Footer
 
 <Img url="/img/ui/ui-main-footer.png" maxHeight="414px" />
+
+Expand the footer component by clicking the caret icon to the far-right of the footer bar. When expanded, the footer will consume the entire window up to the main window's header. Collapse the footer by clicking on the caret icon again.
+
+The footer displays which blockchain networks Polkadot Live is currently connected to. A websockets connection will be established to a supported blockchain network when a subscription is turned on, or when a one-shot subscription preview is executed.
+
+For tech-savy users, it is also possible to select an RPC endpoint for a particular network. Click the current RPC address to open a select menu. From there, click on another RPC endpoint to establish a new websocket connection to that blockchain network.
+
+:::info
+
+Selecting a new RPC endpoint may be useful if you are experiencing a slow response from one-shot subscription previews, or suspect it is taking a long time to fetch blockchain data such as OpenGov referenda.
+
+:::
