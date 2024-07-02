@@ -4,6 +4,8 @@
 
 This repository contains both the source and deployment files for the Polkadot Live documentation portal built using [Docusaurus](https://docusaurus.io/).
 
+The Polkadot Live application repository is located [here](https://github.com/polkadot-live/polkadot-live-app).
+
 # Contributing
 
 ### Installation
