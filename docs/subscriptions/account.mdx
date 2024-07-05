@@ -10,13 +10,37 @@ import { Img } from "@site/src/components/Img"
 
 ## Balances
 
-<Img url="/img/subscriptions/balances.png" maxHeight="125px" />
+:::info
 
-### Transfers
+A Polkadot account is comprised of a **free**, **reserved**, and **frozen** balance. Find out more about these balances on the dedicated [Polkadot Wiki](https://wiki.polkadot.network/docs/learn-account-balances) page.
 
-Get notified when any part of an account's balance changes.
+:::
 
-A Polkadot balance is comprised of a **free**, **reserved**, and **frozen** balance. Regular transfers to and from other addresses will change your free balance, whilst staking and voting activities may change your reserved and frozen balances, respectively.
+<Img url="/img/subscriptions/balances.png" maxHeight="332px" />
+
+### Free
+
+Get notified when an account's free balance changes.
+
+An account's free balance can be used for on-chain activity like staking, participating in governance etc. but is not necessarily spendable (or transferrable).
+
+### Frozen
+
+Get notified when an account's frozen balance changes.
+
+An account's frozen balance (also called __locked__ balance) is the free balance locked for staking, governance, and vesting.
+
+### Reserved
+
+Get notified when an account's reserved balance changes.
+
+An account's reserved balance (also known as __on hold__) is used for identities, proxies, OpenGov preimages and deposits, and it is no longer free.
+
+### Spendable
+
+Get notified when an account's spendable balance changes.
+
+An account's spendable balance is the free balance that can be spent.
 
 ## Nomination Pools
 
