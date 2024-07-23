@@ -4,16 +4,70 @@ sidebar_label: Windows
 description: Installation instructions for Windows.
 ---
 
+import { Img } from "@site/src/components/Img"
+
 # Windows
+
+This page details how to install Polkadot Live on Windows by building the application directly from source. A pre-built Windows installer will be available for download soon.
 
 ## Installer
 
 :::info
 
-Windows installer is coming soon.
+A Windows pre-built installer is coming soon.
 
 :::
 
 ## Build From Source
 
-TODO: Clone repo and build source code.
+Follow the instructions below to build Polkadot Live from source on Windows.
+
+### Install dependencies
+
+1. Download and install Git by following the instructions on the Git website [download page](https://git-scm.com/download/win).
+
+    - During the installation process, choose to install the [GitHub CLI](https://github.com/cli/cli) as well.
+
+2. Download and install Node.js by following the instructions on the Node.js website [download page](https://nodejs.org/en/download/prebuilt-installer).
+
+3. Open Windows Powershell and run the following commands to install Yarn globally and verify a successful install by checking its version output:
+    ```
+    npm install --global yarn
+    yarn --version
+    ```
+
+### Clone repository and build application
+
+Run the following commands in the Windows Powershell command line program.
+
+1. Navigate to an appropriate place on your disk and clone the Polkadot Live application repository.
+    ```
+    cd ~
+    mkdir Polkadot
+    cd Polkadot
+    gh repo clone polkadot-live/polkadot-live-app
+    ```
+
+2. Enter the project root directory.
+    ```
+    cd polkdadot-live-app
+    ```
+
+3. Set yarn to version 4:
+    ```
+    yarn set version berry
+    ```
+
+4. Install project dependencies
+    ```
+    yarn install
+    ```
+
+5. Build and package the application.
+    ```
+    yarn package
+    ```
+
+6. The application will be built within a directory called `out\` under the project root. Open the `out\Polkadot-Live-win32-x64` directory in File Explorer and double-click the `Polkadot Live` application to open it:
+
+<Img url="/img/getting-started/windows-packaged.png"  maxHeight="244px" />
