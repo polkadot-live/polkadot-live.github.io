@@ -8,7 +8,7 @@ sidebar_label: Introduction
 
 Polkadot Live is a Polkadot OpenGov funded project that has been in development since November 2023. It is a cross-platform desktop application that provides subscriptions and performs chain interactions on Polkadot and Substrate based blockchain networks.
 
-Polkadot Live was originally conceptualized by [Ross Bulat](https://github.com/rossbulat) who presented the idea at Polkadot Decoded 2023. The project is currently being actively developed by [Dane Bulat](https://gitbub.com/danebulat), who is working with Ross to realize the project's long-term goals and objectives.
+Polkadot Live was originally conceptualized by [Ross Bulat](https://github.com/rossbulat) who presented the idea at Polkadot Decoded 2023. The project is currently being actively developed by [Dane Bulat](https://github.com/danebulat), who is working with Ross to realize the project's long-term goals and objectives.
 
 ## Summary
 
