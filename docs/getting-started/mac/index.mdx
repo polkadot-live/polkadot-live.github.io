@@ -1,0 +1,96 @@
+---
+sidebar_position: 1
+sidebar_label: macOS
+description: Installation instructions for macOS.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# macOS
+
+## Installer
+
+TODO: Download DMG installer from releases page.
+
+## Build From Source
+
+Follow the instructions below to build Polkadot Live from source.
+
+### Install dependencies
+
+1. Install the Homebrew package manager if you haven't already. Copy and paste the installation command on its homepage at [https://brew.sh](https://brew.sh).
+
+
+2. Open a terminal and run the following commands to install necessary dependencies, starting with Git and GitHub CLI:
+    ```
+    brew install git
+    brew install gh
+    ```
+
+3. Install Node.js and verify a successfuly install by checking its version output:
+    ```
+    brew install nodejs
+    node --version
+    npm --version
+    ```
+
+    If you already have Node.js installed, check if it needs updating to a newer stable version:
+    ```
+    brew update
+    brew upgrade nodejs
+    ```
+
+4. Install Yarn globally and verify a successful install by checking its version output:
+    ```
+    sudo npm install -g yarn
+    yarn --version
+    ```
+
+### Clone repository and build application
+
+1. Navigate to an appropriate place on your disk and clone the Polkadot Live application repository.
+    ```
+    cd ~
+    mkdir Polkadot && cd Polkadot
+    gh repo clone polkadot-live/polkadot-live-app
+    ```
+
+2. Enter the project root directory.
+    ```
+    cd polkdadot-live-app
+    ```
+
+3. Set yarn to version 4:
+    ```
+    yarn set version berry
+    ```
+
+4. Install project dependencies
+    ```
+    yarn install
+    ```
+
+5. Build and package the application.
+    ```
+    yarn package
+    ```
+
+6. The application will be built in the `out/` directory. Now we need to codesign the application so macOS doesn't prevent us from opening it.
+    
+	You may need to install Xcode developer tools to access the `codesign` utility:
+	```
+    xcode-select --install
+    ```
+
+    Codesign the built application:
+	```
+	cd out/Polkadot\ Live-darwin-arm64/
+	codesign --force --deep --sign - Polkadot\ Live.app
+	```
+
+7. Launch Polkadot Live by opening Finder and double clicking the application icon:
+    ```
+    open .
+    ```
+
+<Img url="/img/getting-started/mac-click-icon.png"  maxHeight="250px" />
