@@ -46,6 +46,13 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - name: Delete Deployments
+        uses: strumwolf/delete-deployment-environment@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          environment: github-pages
+          onlyRemoveDeployments: true
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
