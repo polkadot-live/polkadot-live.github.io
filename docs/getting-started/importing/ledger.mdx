@@ -8,44 +8,54 @@ import { Img } from "@site/src/components/Img"
 
 # Importing Ledger Accounts
 
-TODO
+Follow the steps detailed below to import a Polkadot account via a Ledger Hardware wallet. Currently, Polkadot Live can only import a single Polkadot address from Ledger devices.
 
 ### 1. Open the accounts window.
+
+Click the cog icon in the main window's header to open its menu, and then click `Accounts` to open the corresponding window.
 
 <Img url="/img/getting-started/vault-guide/step-01.png" maxHeight="400px" />
 
 ### 2. Click the Ledger card's `USB` button.
 
-<Img url="/img/getting-started/ledger-guide/step-02.png" maxHeight="390px" />
+From the Accounts window home page, click the `USB` button inside the Ledger card.
 
-TODO
+<Img url="/img/getting-started/ledger-guide/step-02.png" maxHeight="390px" />
 
 ### 3. Wait for the Ledger device to be detected.
 
-<Img url="/img/getting-started/ledger-guide/step-03.png" maxHeight="390px" />
+Polkadot Live will now enter a loop and check if a Ledger hardware wallet is connected to your system **with the Polkadot application open**. If you haven't done so already, connect your Ledger device to the system via USB, unlock it, and open the Polkadot application on the device itself.
 
-TODO
+Polkadot Live will update its UI accordingly and will instruct you to unlock your Ledger device and open the Polkadot application if necessary. 
+
+With the aforementioned requirements satisfied, the Polkadot address managed by your Ledger device will be automatically read and added to the accounts window.
+
+<Img url="/img/getting-started/ledger-guide/step-03.png" maxHeight="390px" />
 
 ### 4. Rename the imported account.
 
-<Img url="/img/getting-started/ledger-guide/step-04.png" maxHeight="390px" />
+By default, an imported account's name will be a truncated version of its encoded blockchain address. It is recommended to name an imported account to make it easily identifiable within the application. To rename an account, simply click its name (the text above its address) and type in a new one. Press the `Enter` key after you've typed in a name to save it.
 
-TODO
+<Img url="/img/getting-started/ledger-guide/step-04.png" maxHeight="390px" />
 
 ### 5. Click the `Add` button to add the account to the main window.
 
-<Img url="/img/getting-started/ledger-guide/step-05.png" maxHeight="390px" />
+Click the `Add` button to start the import process.
 
-TODO
+A 3-dot animation will be rendered over the `Add/Remove` button while the account is being imported. During this import process, the account's data will be fetched from its corresponding blockchain network. Such data will include its balance and staking status.
+
+After the import process completes, a native OS notification will be shown to notify you of a successful import. The account will also be listed under the main windows `Subscriptions` tab. This means that you can now manage the account's subscriptions in the main window.
+
+<Img url="/img/getting-started/ledger-guide/step-05.png" maxHeight="390px" />
 
 ### 6. Click the account entry in the main window.
 
-<Img url="/img/getting-started/ledger-guide/step-06.png" maxHeight="400px" />
+Close the Accounts window and return to the main window. Click its `Subscriptions` tab to see your imported account listed. Click on the imported account entry to view and manage its subscriptions.
 
-TODO
+<Img url="/img/getting-started/ledger-guide/step-06.png" maxHeight="400px" />
 
 ### 7. Manage the account's subscriptions.
 
-<Img url="/img/getting-started/ledger-guide/step-07.png" maxHeight="530px" />
+From here you can manage and preview subscriptions for the imported account.
 
-TODO
+<Img url="/img/getting-started/ledger-guide/step-07.png" maxHeight="530px" />
