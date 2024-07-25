@@ -1,0 +1,75 @@
+---
+sidebar_position: 3
+sidebar_label: OpenGov Subscriptions
+description: How to use OpenGov subscriptions.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# OpenGov Subscriptions Guide
+
+Follow the steps in this guide to learn how to work with OpenGov subscriptions.
+
+### 1. Open the OpenGov window.
+
+Click the cog icon in the main window's header to open its menu, and then click `OpenGov`.
+
+<Img url="/img/getting-started/opengov-guide/step-01.jpg" maxHeight="400px" />
+
+### 2. Click on the Polkadot Referenda card.
+
+In this guide we will subscribe to a referendum on the Polkadot network. To accomplish this, firstly click on the `On Polkadot` referenda card to open a listing of ongoing referenda specifically on Polkadot.
+
+<Img url="/img/getting-started/opengov-guide/step-02.jpg" maxHeight="390px" />
+
+### 3. Click a referendum's `Subscribe All` or individual subscribe buttons.
+
+Polkadot Live will fetch and list ongoing referenda on the Polkadot network. Feel free to use the sorting controls at the top of the window to customise how the referenda are listed. You will also notice a `More` button below each referendum's title. When clicked, the referendum's off-chain metadata will be displayed inside an overlay in raw form. This is the same information that is shown on the Polkassembly and OpenGov portals.
+
+Two buttons are displayed on the end of referenda rows. The `+` (plus) button will subscribe to all subscriptions available to the referendum. The second `^` (expand) button will open a panel that lists individual subscriptions available to the referendum.
+
+In this guide, we will click on the `+` button to enable all subscriptions for the referendum - which include the **Votes Tally**, **Decision Period**, and **Thresholds** subscriptions. Upon doing this, a `Polkadot` entry will be added to the main windows `Subscriptions` tab within the OpenGov panel. Our subscriptions can thus be managed from within the main window.
+
+<Img url="/img/getting-started/opengov-guide/step-03.jpg" maxHeight="390px" />
+
+### 4. Notice the UI changes to allow unsubscribing from a subscription.
+
+Notice how the UI changes when subscriptions are enabled. The `+` (plus) button changes to a `-` (minus), and individual subscribe buttons are labeled `- Unsubscribe`. These buttons do what you'd expect - they turn off the subscription and remove its entry from the main window.
+
+It's also possible to remove an OpenGov subscription from the main window, which is a quicker and more efficient route to accomplish the same task.
+
+<Img url="/img/getting-started/opengov-guide/step-04.jpg" maxHeight="390px" />
+
+### 5. Click the `Polkadot` entry under the main window's OpenGov panel.
+
+Return to the main window and open its `Subscriptions` tab. You will notice that a `Polkadot` entry has been added under the OpenGov panel. This is the result of subscribing to a Polkadot referendum. If we were to subscribe to a referendum on Kusama, a `Kusama` entry would also be displayed here as well.
+
+From here, click on the `Polkadot` entry to open and manage our active OpenGov subscriptions.
+
+<Img url="/img/getting-started/opengov-guide/step-05.jpg" maxHeight="400px" />
+
+### 6. Cick the referendum header to show its subscriptions.
+
+Click on the referendum header - in our case labeled `Referendum 998` - to open its active subscriptions.
+
+Notably, each active OpenGov subscription will send a notification every **15 minutes** by default. Click on the interval icon (third icon from the left) on the subscription's row to set a new duration.
+
+<Img url="/img/getting-started/opengov-guide/step-06.jpg" maxHeight="400px" />
+
+### 7. Click on the one-shot buttons to preview a subscription.
+
+You don't have to wait for notifications to come in with Polkadot Live. At any time, you can click the `Preview` icon, represented as two down arrows, to retrieve the blockchain's latest state. Upon doing this, a native OS notification will be displayed, and an event item will be added under the main window's `Events` tab. A "preview" is also known as a "one-shot" within Polkadot Live.
+
+Go ahead and click the `Preview` button for your enabled subscriptions.
+
+<Img url="/img/getting-started/opengov-guide/step-07.jpg" maxHeight="400px" />
+
+### 8. Check the main window's `Events` tab.
+
+Now open the main windows `Events` tab, where you can see the result of clicking the preview buttons. Event items will display specific information that relate to the corresponding subscription. In this case, the latest Aye and Nay percentage is shown because we previewed the **Votes Tally** subscription. 
+
+Similarly, another event item is rendered notifying us of the remaining time for the referendum's decision period. This was the result of previewing the **Decision Period** subscription.
+
+Notice that links are also provided on event items, which can be shown by clicking the `^` (expand) button. In this case, we are given links to Polkassembly and Subsquare, allowing us to jump to those OpenGov portals in a web browser to inspect the referendum in more detail.
+
+<Img url="/img/getting-started/opengov-guide/step-08.jpg" maxHeight="426px" />
