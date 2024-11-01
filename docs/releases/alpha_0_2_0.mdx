@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 sidebar_label: 0.2.0-alpha
 description: 0.2.0-alpha release notes.
 ---
@@ -10,7 +10,7 @@ import { Img } from "@site/src/components/Img"
 
 ## Summary
 
-#### Release:
+#### Release
 
 https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.2.0-alpha 
 
@@ -46,7 +46,7 @@ All child windows in Polkadot Live are now opened within a tabbed "base" window.
 
 <Img url="/img/releases/0-2-0-alpha/img-02.jpg" maxHeight="240px" />
 
-<br />Also note that closing the base window will not destroy its tabbed windows - it will simply be hidden.
+<br />Also note that closing the base window will simply hide it, and not destroy its tabbed windows.
 
 A tab will be rendered in the base window upon opening a child window. Simply click on a tab to switch between the windows you have opened. It's also possible to drag tabs in order to re-order them to your preference. Tabs can also be closed by clicking on the small `x` icon displayed on the right hand side of the tab in question. Clicking on the close button will destroy its associated window, thus freeing up memory.
 
@@ -60,16 +60,19 @@ These bullet points summarize the new tabs behavior:
 
 #### Merged PRs
 
-- [fix: debugging iteration #701](https://github.com/polkadot-live/polkadot-live-app/pull/701)
-- [feat: tabbed child windows #668](https://github.com/polkadot-live/polkadot-live-app/pull/668)
-  - [chore: initial tabs context #669](https://github.com/polkadot-live/polkadot-live-app/pull/669)
-  - [chore: child window views #670](https://github.com/polkadot-live/polkadot-live-app/pull/670)
-  - [chore: base window header #672](https://github.com/polkadot-live/polkadot-live-app/pull/672)
-  - [chore: base window dynamic tabs #673](https://github.com/polkadot-live/polkadot-live-app/pull/673)
-  - [chore: message ports optimisation #674](https://github.com/polkadot-live/polkadot-live-app/pull/674)
-  - [chore: views debugging + devTools hotkey](https://github.com/polkadot-live/polkadot-live-app/pull/675)
-  - [fix: base window debugging #676](https://github.com/polkadot-live/polkadot-live-app/pull/676)
-  - [chore: tabs styling #677](https://github.com/polkadot-live/polkadot-live-app/pull/677)
+<details>
+  <summary>View Merged PRs</summary>
+  - [fix: debugging iteration #701](https://github.com/polkadot-live/polkadot-live-app/pull/701)
+  - [feat: tabbed child windows #668](https://github.com/polkadot-live/polkadot-live-app/pull/668)
+    - [chore: initial tabs context #669](https://github.com/polkadot-live/polkadot-live-app/pull/669)
+    - [chore: child window views #670](https://github.com/polkadot-live/polkadot-live-app/pull/670)
+    - [chore: base window header #672](https://github.com/polkadot-live/polkadot-live-app/pull/672)
+    - [chore: base window dynamic tabs #673](https://github.com/polkadot-live/polkadot-live-app/pull/673)
+    - [chore: message ports optimisation #674](https://github.com/polkadot-live/polkadot-live-app/pull/674)
+    - [chore: views debugging + devTools hotkey](https://github.com/polkadot-live/polkadot-live-app/pull/675)
+    - [fix: base window debugging #676](https://github.com/polkadot-live/polkadot-live-app/pull/676)
+    - [chore: tabs styling #677](https://github.com/polkadot-live/polkadot-live-app/pull/677)
+</details>
 
 ## Umami Analytics
 
@@ -83,8 +86,11 @@ Analytics data will provide useful insights into how the application is being us
 
 #### Merged PRs
 
-- [feat: umami integration #680](https://github.com/polkadot-live/polkadot-live-app/pull/680)
-  - [feat: custom umami client #699](https://github.com/polkadot-live/polkadot-live-app/pull/699)
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: umami integration #680](https://github.com/polkadot-live/polkadot-live-app/pull/680)
+    - [feat: custom umami client #699](https://github.com/polkadot-live/polkadot-live-app/pull/699)
+</details>
 
 ## Backup More Data
 
@@ -107,20 +113,23 @@ Keep in mind that data in the backup file takes precedence over the current stat
 
 #### Merged PRs
 
-- [feat: backup iteration #702](https://github.com/polkadot-live/polkadot-live-app/pull/702)
-  - [feat: export events data #703](https://github.com/polkadot-live/polkadot-live-app/pull/703)
-  - [feat: import events data #704](https://github.com/polkadot-live/polkadot-live-app/pull/704)
-  - [feat: export interval subscriptions #705](https://github.com/polkadot-live/polkadot-live-app/pull/705)
-  - [feat: import interval subscriptions #706](https://github.com/polkadot-live/polkadot-live-app/pull/706)
-  - [feat: account subscriptions backup #707](https://github.com/polkadot-live/polkadot-live-app/pull/707)
-    - [feat: export account subscriptions #708](https://github.com/polkadot-live/polkadot-live-app/pull/708)
-    - [feat: import account subscriptions #709](https://github.com/polkadot-live/polkadot-live-app/pull/709)
-  - [chore: data backup ux #710](https://github.com/polkadot-live/polkadot-live-app/pull/710)
-  - [chore: backup logic changes #711](https://github.com/polkadot-live/polkadot-live-app/pull/711)
-  - [chore: data backup context #712](https://github.com/polkadot-live/polkadot-live-app/pull/712)
-  - [fix: data backup debugging #713](https://github.com/polkadot-live/polkadot-live-app/pull/713)
-- [chore: backup controller #645](https://github.com/polkadot-live/polkadot-live-app/pull/645)
-- [chore: export + import ledger accounts #643](https://github.com/polkadot-live/polkadot-live-app/pull/643)
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: backup iteration #702](https://github.com/polkadot-live/polkadot-live-app/pull/702)
+    - [feat: export events data #703](https://github.com/polkadot-live/polkadot-live-app/pull/703)
+    - [feat: import events data #704](https://github.com/polkadot-live/polkadot-live-app/pull/704)
+    - [feat: export interval subscriptions #705](https://github.com/polkadot-live/polkadot-live-app/pull/705)
+    - [feat: import interval subscriptions #706](https://github.com/polkadot-live/polkadot-live-app/pull/706)
+    - [feat: account subscriptions backup #707](https://github.com/polkadot-live/polkadot-live-app/pull/707)
+      - [feat: export account subscriptions #708](https://github.com/polkadot-live/polkadot-live-app/pull/708)
+      - [feat: import account subscriptions #709](https://github.com/polkadot-live/polkadot-live-app/pull/709)
+    - [chore: data backup ux #710](https://github.com/polkadot-live/polkadot-live-app/pull/710)
+    - [chore: backup logic changes #711](https://github.com/polkadot-live/polkadot-live-app/pull/711)
+    - [chore: data backup context #712](https://github.com/polkadot-live/polkadot-live-app/pull/712)
+    - [fix: data backup debugging #713](https://github.com/polkadot-live/polkadot-live-app/pull/713)
+  - [chore: backup controller #645](https://github.com/polkadot-live/polkadot-live-app/pull/645)
+  - [chore: export + import ledger accounts #643](https://github.com/polkadot-live/polkadot-live-app/pull/643)
+</details>
 
 ## Architecture Improvements
 
@@ -130,11 +139,14 @@ Effort has been made to standardize the coding conventions used in the preload A
 
 #### Merged PRs
 
-- [chore: workspaces ipcs refactor #667](https://github.com/polkadot-live/polkadot-live-app/pull/667)
-- [chore: settings ipcs refactor #666](https://github.com/polkadot-live/polkadot-live-app/pull/666)
-- [chore: connection ipcs refactor #665](https://github.com/polkadot-live/polkadot-live-app/pull/665)
-- [chore: account ipcs refactor #664](https://github.com/polkadot-live/polkadot-live-app/pull/664)
-- [chore: events ipcs refactor #663](https://github.com/polkadot-live/polkadot-live-app/pull/663)
-- [chore: generic subscription task ipcs #662](https://github.com/polkadot-live/polkadot-live-app/pull/662)
-- [chore: main process intervals controller #661](https://github.com/polkadot-live/polkadot-live-app/pull/661)
-- [chore: generic interval task ipcs #660](https://github.com/polkadot-live/polkadot-live-app/pull/660)
+<details>
+  <summary>View Merged PRs</summary>
+  - [chore: workspaces ipcs refactor #667](https://github.com/polkadot-live/polkadot-live-app/pull/667)
+  - [chore: settings ipcs refactor #666](https://github.com/polkadot-live/polkadot-live-app/pull/666)
+  - [chore: connection ipcs refactor #665](https://github.com/polkadot-live/polkadot-live-app/pull/665)
+  - [chore: account ipcs refactor #664](https://github.com/polkadot-live/polkadot-live-app/pull/664)
+  - [chore: events ipcs refactor #663](https://github.com/polkadot-live/polkadot-live-app/pull/663)
+  - [chore: generic subscription task ipcs #662](https://github.com/polkadot-live/polkadot-live-app/pull/662)
+  - [chore: main process intervals controller #661](https://github.com/polkadot-live/polkadot-live-app/pull/661)
+  - [chore: generic interval task ipcs #660](https://github.com/polkadot-live/polkadot-live-app/pull/660)
+</details>

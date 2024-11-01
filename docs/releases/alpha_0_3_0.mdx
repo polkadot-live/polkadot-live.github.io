@@ -1,0 +1,171 @@
+---
+sidebar_position: 1
+sidebar_label: 0.3.0-alpha
+description: 0.3.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.3.0-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.3.0-alpha 
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Flexible side navigation.
+- Summary screen displaying key usage statistics.
+- Standardized styling convention application wide.
+- Toggleable dynamic dark and light themes.
+
+#### Next Release
+
+The next release of Polkadot Live will likely focus on project structure and more UX improvements. More specifically:
+
+- Migrating to a monorepo setup.
+- Releasing an initial Linux build.
+- UX improvements and UI additions to the main and OpenGov windows.
+- New test suite setup.
+
+## New Navigation and Summary
+
+### Side Navigation
+
+A side navigation bar has replaced the tabbed interface from previous versions, becoming the new way to navigate the main window. The following bullet points provide some key thoughts behind the decision to implement this feature in Polkadot Live:
+
+- Improved UX with smooth button animations and the ability to collapse and expand the navigation bar.
+- Room for additional buttons to open screens and child windows as new features are added.
+- It's a re-usable component and can be added to child windows that require more complex navigation. 
+- The component will naturally fit into future distributions of Polkadot Live, such as a web extension and web application interface.
+
+The side navigation can be seen in the following screenshots with both the dark and light themes enabled:
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-between' }}>
+  <Img url="/img/releases/0-3-0-alpha/side-nav-dark-1.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/side-nav-dark-2.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/side-nav-dark-3.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/side-nav-dark-4.jpg" maxHeight="300px" />
+</div>
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-between' }}>
+  <Img url="/img/releases/0-3-0-alpha/side-nav-light-1.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/side-nav-light-2.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/side-nav-light-3.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/side-nav-light-4.jpg" maxHeight="300px" />
+</div>
+
+### Summary Screen
+
+A new **Summary** screen has been implemented in 0.3.0-alpha. The goal of this screen is to provide key statistics that relate to your Polkadot Live installation. As such, it allows you to track:
+
+- The total amount of accounts you have imported, along with their import methods.
+- The amount of active subscriptions that are enabled for both accounts and OpenGov referenda.
+- The total amount of events Polkadot Live has received and is currently managing, along with a category breakdown.
+
+Future development iterations will build upon this foundation and improvements will be made as more features are added to Polkadot Live. The summary screen can be seen in the following screenshots with both the dark and light themes enabled:
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-around', marginBottom: '1rem' }}>
+  <Img url="/img/releases/0-3-0-alpha/summary-dark-2.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/summary-dark.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/summary-light-2.jpg" maxHeight="300px" />
+  <Img url="/img/releases/0-3-0-alpha/summary-light.jpg" maxHeight="300px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [feat: sidebar navigation + summary screen #714](https://github.com/polkadot-live/polkadot-live-app/pull/714)
+      - [feat: initial summary page #715](https://github.com/polkadot-live/polkadot-live-app/pull/715)
+      - [feat: number meter component #716](https://github.com/polkadot-live/polkadot-live-app/pull/716)
+      - [chore: stats library components #717](https://github.com/polkadot-live/polkadot-live-app/pull/717)
+  - [feat: main window screen titles #719](https://github.com/polkadot-live/polkadot-live-app/pull/719)
+  - [feat: persist side nav collapsed state #720](https://github.com/polkadot-live/polkadot-live-app/pull/720)
+  - [chore: base window tabs iteration #721](https://github.com/polkadot-live/polkadot-live-app/pull/721)
+  - [chore: move components to library #722](https://github.com/polkadot-live/polkadot-live-app/pull/722)
+</details>
+
+## Standardized Styling
+
+#### Description
+
+The Polkadot Live UI has been refreshed and simplified throughout the entire application. All screens now follow a standard styling convention, meaning:
+
+- The entire application adopts a single color palette.
+- Components such as buttons and cards are re-used on screens where appropriate.
+- UI elements are kept minimalistic and easy on the eye.
+
+The following screenshots illustrate how windows are now styled in a consistent manner:
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-around', marginBottom: '1rem' }}>
+  <Img url="/img/releases/0-3-0-alpha/dark-ui-1.jpg" maxHeight="200px" />
+  <Img url="/img/releases/0-3-0-alpha/dark-ui-2.jpg" maxHeight="200px" />
+  <Img url="/img/releases/0-3-0-alpha/light-ui-1.jpg" maxHeight="200px" />
+  <Img url="/img/releases/0-3-0-alpha/light-ui-2.jpg" maxHeight="200px" />
+</div>
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-around', marginBottom: '1rem' }}>
+  <Img url="/img/releases/0-3-0-alpha/dark-ui-3.jpg" maxHeight="200px" />
+  <Img url="/img/releases/0-3-0-alpha/dark-ui-4.jpg" maxHeight="200px" />
+  <Img url="/img/releases/0-3-0-alpha/light-ui-3.jpg" maxHeight="200px" />
+  <Img url="/img/releases/0-3-0-alpha/light-ui-4.jpg" maxHeight="200px" />
+</div>
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'start', marginBottom: '1rem' }}>
+  <Img url="/img/releases/0-3-0-alpha/dark-ui-6.jpg" maxHeight="150px" />
+  <Img url="/img/releases/0-3-0-alpha/dark-ui-5.jpg" maxHeight="150px" />
+  <Img url="/img/releases/0-3-0-alpha/light-ui-6.jpg" maxHeight="150px" />
+  <Img url="/img/releases/0-3-0-alpha/light-ui-5.jpg" maxHeight="150px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: styling iteration #723](https://github.com/polkadot-live/polkadot-live-app/pull/723)
+      - [feat: accordion styling iteration #724](https://github.com/polkadot-live/polkadot-live-app/pull/724)
+      - [feat: event item styling #725](https://github.com/polkadot-live/polkadot-live-app/pull/725)
+      - [feat: subscription screen styling #726](https://github.com/polkadot-live/polkadot-live-app/pull/726)
+      - [feat: settings screen styling #727](https://github.com/polkadot-live/polkadot-live-app/pull/727)
+      - [feat: import screen styling #728](https://github.com/polkadot-live/polkadot-live-app/pull/728)
+      - [feat: open gov screen styling #729](https://github.com/polkadot-live/polkadot-live-app/pull/729)
+      - [feat: open gov referenda styling #730](https://github.com/polkadot-live/polkadot-live-app/pull/730)
+      - [feat: open gov tracks styling #731](https://github.com/polkadot-live/polkadot-live-app/pull/731)
+      - [chore: styling tweaks #732](https://github.com/polkadot-live/polkadot-live-app/pull/732)
+</details>
+
+## Dark and Light Theme Toggling
+
+#### Description
+
+The main window's header now houses a new toggle button to instantly switch between dark and light mode:
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-around', marginBottom: '1rem' }}>
+  <Img url="/img/releases/0-3-0-alpha/toggle-light.jpg" maxHeight="35px" />
+  <Img url="/img/releases/0-3-0-alpha/toggle-dark.jpg" maxHeight="35px" />
+</div>
+
+The toggle button will be rendered as a moon icon when Polkadot Live is in dark mode. On the other hand, it will be rendered as a sun icon in light mode. The following bullet points summarise the new theme toggle behavior:
+
+- The default theme is dark mode when Polkadot Live is launched for the first time.
+- The active theme is persisted to your installation's database and is restored the next time you launch the application.
+- All open child windows will update their theming when the toggle button is clicked.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: dynamic themes #733](https://github.com/polkadot-live/polkadot-live-app/pull/733)
+      - [feat: dynamic dark theme #734](https://github.com/polkadot-live/polkadot-live-app/pull/734)
+      - [feat: dynamic light theme #735](https://github.com/polkadot-live/polkadot-live-app/pull/735)
+  - [feat: theme toggle #736](https://github.com/polkadot-live/polkadot-live-app/pull/736)
+  - [chore: theme tweaks #737](https://github.com/polkadot-live/polkadot-live-app/pull/737)
+  - [fix: no accounts wrapper theming #738](https://github.com/polkadot-live/polkadot-live-app/pull/738)
+</details>
