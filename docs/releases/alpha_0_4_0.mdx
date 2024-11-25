@@ -1,0 +1,161 @@
+---
+sidebar_position: 1
+sidebar_label: 0.4.0-alpha
+description: 0.4.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.4.0-alpha
+
+## Summary
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.4.0-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Monorepo migration
+- Electron Builder integration
+- Linux build
+- Test suite infrastructure
+- UI changes
+
+#### Next Release
+
+The next release of Polkadot Live will likely focus on improving Ledger support and integrating the Wallet Connect protocol. This includes:
+
+- Augmenting the Ledger hardware wallet UI.
+ - Allow selecting either the `Polkadot` or `Kusama` network to import the correct address from a ledger device.
+- Enable extrinsic signing via a Ledger device.
+- Implement a UI for importing accounts via the Wallet Connect protocol.
+- Enable extrinsic signing via the Wallet Connect protocol.
+
+### Monorepo Migration
+
+The Polkadot Live repository is now a monorepo ("monolithic repository"). This setup allows for multiple projects, libraries and components being stored within a single repository, as opposed to having separate repositories for each project or library.
+
+When the Polkadot Live desktop distribution reaches a stable release, we will explore targeting other platforms and environments that are also capable of running the application and its feature set. For example, future Polkadot Live distributions may include a **web extension**, fully-featured **web application**, and even a **mobile application**.
+
+A monorepo setup improves developer experience, and provides a seamless workflow for developing modular, reusable packages that multiple Polkadot Live distributions can potentially consume.
+
+The following screenshot illustrates the initial monorepo package structure as of this version:
+<Img url="/img/releases/0-4-0-alpha/package-graph.jpg" maxHeight="240px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [feat: monorepo migration #740](https://github.com/polkadot-live/polkadot-live-app/pull/740)
+      - [chore: project monorepo refactor #741](https://github.com/polkadot-live/polkadot-live-app/pull/741)
+      - [feat: ui package #742](https://github.com/polkadot-live/polkadot-live-app/pull/742)
+      - [feat: nx integration #743](https://github.com/polkadot-live/polkadot-live-app/pull/743)
+      - [chore: cog menu context #744](https://github.com/polkadot-live/polkadot-live-app/pull/744)
+  -  [feat: nx watch build script #746](https://github.com/polkadot-live/polkadot-live-app/pull/746)
+</details>
+
+
+### Electron Builder Integration
+
+[Electron Builder](https://github.com/electron-userland/electron-builder) has replaced [Electron Forge](https://github.com/electron/forge) for building, packaging and publishing Polkadot Live to multiple desktop platforms. The following reasons explain the decision to adopt Electron Builder:
+
+- Granular configuration options are provided to meet the project's needs.
+- Allows for seamlessly packaging multiple monorepo projects to produce a single distributable.
+- It has a lighter footprint on the project in terms of dependencies and necessary configuration compared to Electron Forge.
+- Provides excellent documentation covering the whole API.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: electron builder integration #739](https://github.com/polkadot-live/polkadot-live-app/pull/739)
+</details>
+
+### Linux Build
+
+Polkadot Live running on Ubuntu 24.04 LTS:
+<Img url="/img/releases/0-4-0-alpha/linux-screenshot.jpg" maxHeight="400px" />
+
+A Polkadot Live AppImage is now available for Linux systems which can be downloaded on the official [release page](https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.4.0-alpha).
+
+An AppImage is a universal packaging format for distributing software on Linux. It allows for bundling applications and all their dependencies into a single executable file, making it easier to distribute and run applications across different Linux distributions.
+
+#### Running Polkadot Live on Linux
+
+The Polkadot Live AppImage is an Electron application built for 64-bit processor architectures. Your Linux ISO may label its architecture as **x64**, **x86_64** or **amd64** - they all mean the same thing in this context. The AppImage is compatible with these architectures.
+
+If you are having problems running the Polkadot Live AppImage on your Linux distribution, the following article may help:<br />
+https://itsfoss.com/cant-run-appimage-ubuntu/
+
+Some important points to check if your AppImage is not launching:
+- Install your Linux distribution's appropriate FUSE package.
+- Make sure the AppImage is executable and has appropriate file permissions.
+- Pass the `--no-sandbox` option if you are receiving a sandbox error message.
+  - This is a particular issue on Debian based systems.
+
+#### Future Linux support
+
+When the **Milestone 2** roadmap nears completion, effort will be made to provide additional documentation on how to install Polkadot Live on various Linux distributions, along with how to troubleshoot certain issues.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: linux app image build #750](https://github.com/polkadot-live/polkadot-live-app/pull/750)
+      - [feat: linux minimise window button #751](https://github.com/polkadot-live/polkadot-live-app/pull/751)
+      - [chore: dynamic dock button #752](https://github.com/polkadot-live/polkadot-live-app/pull/752)
+      - [fix: linux overlay window alternative #753](https://github.com/polkadot-live/polkadot-live-app/pull/753)
+      - [fix: linux base window glitch #754](https://github.com/polkadot-live/polkadot-live-app/pull/754)
+      - [chore: linux app image config #755](https://github.com/polkadot-live/polkadot-live-app/pull/755)
+  - [chore: linux release workflow #756](https://github.com/polkadot-live/polkadot-live-app/pull/756)
+  - [feat: header dock toggle icon #757](https://github.com/polkadot-live/polkadot-live-app/pull/757)
+</details>
+
+### Test Suite Infrastructure
+
+The previous WDIO setup has been removed from the project and replaced with a modern, easy-to-use testing stack comprised of:
+
+- [Vitest](https://github.com/vitest-dev/vitest)
+- [jsdom](https://github.com/jsdom/jsdom)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+Moreover, a modular testing workflow has been adopted where each monorepo package houses its own test suite. This approach allows for seamlessly focusing on and testing individual packages along with their specific logic or functionality.
+
+We plan to implement end-to-end testing using Playwright in a future release.
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: test suite infra #747](https://github.com/polkadot-live/polkadot-live-app/pull/747)
+      - [feat: ui package test suite #748](https://github.com/polkadot-live/polkadot-live-app/pull/748)
+  - [feat: preload test suite #749](https://github.com/polkadot-live/polkadot-live-app/pull/749)
+</details>
+
+### UI Updates
+
+The verbose `Dock` button has been removed from the main window's header. A new button has been added next to the cog button which does one of the following, depending on OS platform:
+
+- **MacOS and Windows**<br />
+  A padlock icon that animates when clicked. Docks or un-docks the main window.
+
+- **Linux**<br />
+  A down arrow icon that minimizes the main window when clicked.
+
+#### Linux considerations
+
+Linux desktop environments are extremely fragmented and the following issues must be considered:
+- It is not guaranteed that a tray is installed to display the Polkadot Live icon.
+- A menu bar may be docked to any side of the screen.
+- A dock may also be docked to any side of the screen.
+- A tiling window manager may be in use instead of a traditional desktop environment.
+
+With these points in mind, a **Minimize** button replaces the header's **Dock** button on Linux. If a tray is installed, the Polkadot Live icon will be rendered and will work as normal. On the other hand, the user also has the option of minimizing the main window if a tray is not installed.
+
+#### Screenshots
+
+Main window header on **MacOS and Windows** (top) and **Linux** (bottom).
+
+<Img url="/img/releases/0-4-0-alpha/ui-change-1.jpg" maxHeight="40px" />
+<Img url="/img/releases/0-4-0-alpha/ui-change-2.jpg" maxHeight="40px" />
