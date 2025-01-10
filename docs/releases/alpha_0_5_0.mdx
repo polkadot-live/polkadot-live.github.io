@@ -1,0 +1,181 @@
+---
+sidebar_position: 1
+sidebar_label: 0.5.0-alpha
+description: 0.5.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.5.0-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.5.0-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Improved Ledger support<br />
+  - Polkadot and Kusama support<br />
+  - New UI for importing multiple addresses
+- WalletConnect integration<br />
+  - Polkadot, Kusama and Westend network support<br />
+  - New UI for importing addresses via a WalletConnect session
+- Other UI changes
+- Architecture improvements
+
+### Next Release
+
+The next release of Polkadot Live will likely focus on developing the extrinsics architecture. This includes:
+
+- Improving the __Actions__ window UX and extrinsics features.
+- Refactor the extrinsics subsystem for improved DX and support for managing multiple extrinsics.
+- Enable extrinsics signing via the WalletConnect protocol.
+
+### Improved Ledger Support
+
+The **Import Ledger Accounts** UI now allows retrieving and importing multiple addresses from a connected Ledger device. At present, Polkadot and Kusama derived addresses can be fetched.
+
+The new UI for importing Ledger addresses is comprised of two collapsible panels:
+
+-  **Connect Ledger**<br /> 
+  Requires users to select a target network before clicking the **Connect** button. The application will attempt to connect to a Ledger device and fetch its derived addresses for the selected network. Appropriate feedback is displayed if a Ledger device is not connected, is locked, or the Polkadot app is not open.
+  
+- **Import Addresses**<br />
+  Lists "paginated" derived addresses fetched from the connected Ledger device, and provides buttons to list the next or previous 5 derived addresses. The user is able to select addresses they wish to import by clicking their corresponding checkbox. The green **Import** button will import selected addresses into Polkadot Live when clicked.
+
+The following screenshot shows the **Import Ledger Accounts** UI with a target network of Polkadot selected.
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-ledger-01.jpg" maxHeight="375px" />
+
+Follow the next steps to fetch derived addresses from the connected Ledger device:
+- Select either **Polkadot** or **Kusama** as your target network.
+- Connect a Ledger device to your system via USB.
+- Unlock the Ledger device and open the Polkadot App.
+- Click the **Connect** button.
+
+At this point, the first 5 Polkadot addresses will be fetched from the Ledger device and listed. This new UI enables users to perform the following tasks:
+- Select addresses to import by clicking their corresponding checkbox.
+- Display the next or previous 5 derived addresses by clicking the arrowed pagination buttons.
+- Import selected addresses by clicking the green **Import** button.
+
+Simply select the addresses you wish to import into Polkadot Live and click the green **Import** button:
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-ledger-02.jpg" maxHeight="525px" />
+
+Upon clicking the green **Import** button, your selected addresses will now be listed on the **Ledger Accounts** page. From here, you can manage the account just like any other account added to Polkadot Live.
+
+Click the **Import Ledger Accounts** button at any time to return to the import UI. From there, you can import more Ledger accounts.
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-ledger-03.jpg" maxHeight="375px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [feat: improved ledger support 1 #758](https://github.com/polkadot-live/polkadot-live-app/pull/758)
+      - [feat: ui layout for importing ledger addresses #759](https://github.com/polkadot-live/polkadot-live-app/pull/759)
+      - [feat: fetching multiple ledger addresses #760](https://github.com/polkadot-live/polkadot-live-app/pull/760)
+      - [feat: importing ledger addresses #761](https://github.com/polkadot-live/polkadot-live-app/pull/761)
+      - [chore: ledger codebase refactor #762](https://github.com/polkadot-live/polkadot-live-app/pull/762)
+      - [feat: ledger ui polish #763](https://github.com/polkadot-live/polkadot-live-app/pull/763)
+</details>
+
+### WalletConnect Integration
+
+This release implements initial WalletConnect support within Polkadot Live. Users can import addresses managed by external applications and Dapps by establishing a session via the WalletConnect protocol.
+
+The new UI for importing WalletConnect addresses is comprised of two collapsible panels:
+
+-  **Establish Session**<br /> 
+  Requires users to select one or more target networks which correspond to the network addresses you wish to import. Clicking the **Connect** button will display a **QR code** within a WalletConnect modal. The user is able to scan this QR code with any Polkadot wallet or Dapp that has implemented the WalletConnect protocol. For example, **SubWallet** or **Nova Wallet**.<br /><br />
+  After scanning the QR code and **approving** addresses within the respective wallet or Dapp, Polkadot Live will detect the approval and automatically list the fetched addresses.
+  
+- **Import Addresses**<br />
+  Lists approved addresses that have been fetched from an external wallet or Dapp via the WalletConnect protocol. The user is able to select addresses they wish to import by clicking their corresponding checkbox. The green **Import** button will import selected addresses into Polkadot Live when clicked.
+
+The import window includes a new **WalletConnect** card. Clicking it will display a new UI which will allow users to fetch addresses via the WalletConnect protocol and manage them accordingly:
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-wc-01.jpg" maxHeight="375px" />
+
+The next screenshot shows the UI that will be displayed if Polkadot Live cannot detect an existing, previously established WalletConnect session:
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-wc-02.jpg" maxHeight="445px" />
+
+A different UI is presented if an existing WalletConnect session is detected. In this case, the user is able to re-fetch addresses from the existing session, or disconnect from it:
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-wc-03.jpg" maxHeight="375px" />
+
+Follow these steps to fetch addresses from an external Polkadot wallet via WalletConnect:
+
+##### Within Polkadot Live
+
+- Select your target networks - the network addresses you would like to fetch.
+- Click the **Connect** button.
+- A QR code is displayed within a WalletConnect Modal.
+
+##### Within an external wallet (such as SubWallet)
+
+- Scan the QR code with its built-in scanner.
+- Select the addresses that you would like to import, and tap the **Approve** button.
+
+##### Back in Polkadot Live
+
+At this point, Polkadot Live will detect the approval and list the approved addresses accordingly. This new UI enables users to perform the following tasks:
+
+- Select addresses to import by clicking their corresponding checkbox.
+- Import selected addresses by clicking the green **Import** button.
+
+Simply select the addresses you wish to import into Polkadot Live and click the green **Import** button:
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-wc-04.jpg" maxHeight="480px" />
+
+Upon clicking the green Import button, your selected addresses will now be listed on the **WalletConnect Accounts** page. You can manage the accounts just like any other account added to Polkadot Live.
+
+Click the **Import WalletConnect Accounts** button at any time to return to the import UI, where you can import more accounts using WalletConnect.
+
+<Img url="/img/releases/0-5-0-alpha/ui-import-wc-05.jpg" maxHeight="375px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [feat: wallet connect integration #766](https://github.com/polkadot-live/polkadot-live-app/pull/766)
+    - [feat: wallet connect ui foundation #765](https://github.com/polkadot-live/polkadot-live-app/pull/765)
+    - [feat: wallet connect context #767](https://github.com/polkadot-live/polkadot-live-app/pull/767)
+    = [feat: wallet connect dynamic ui #768](https://github.com/polkadot-live/polkadot-live-app/pull/768)
+    - [feat: import wallet connect addresses #769](https://github.com/polkadot-live/polkadot-live-app/pull/769)
+    - [chore: wallet connect optimisation #788](https://github.com/polkadot-live/polkadot-live-app/pull/788)
+</details>
+
+### Other UI Changes
+
+New styling for help overlay definitions builds upon Polkadot Live's design direction of using clean, minimal and effective UI components.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [chore: help overlay definitions styling #792](https://github.com/polkadot-live/polkadot-live-app/pull/792)
+</details>
+
+### Architecture Improvements
+
+This release sees architecture improvements for handling Polkadot Live's online and offline modes. More specifically:
+
+- An `isConnected` flag tracks whether the host system is connected to the internet or not.
+- An `isOnlineMode` flag tracks whether the application itself should be presented in online or offline mode.
+
+Polkadot Live's relay system allows all open windows to remain synced and receive the most up-to-date state of these flags at all times. As a result, UIs instantly reflect the state of these flags application-wide, and automatically change when either of the flags are updated.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  - [fix: online status relay #770](https://github.com/polkadot-live/polkadot-live-app/pull/770)
+</details>
