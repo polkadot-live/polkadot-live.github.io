@@ -1,0 +1,251 @@
+---
+sidebar_position: 1
+sidebar_label: 0.6.2-alpha
+description: 0.6.2-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.6.2-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.6.2-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Extrinsics architecture enhancements
+  - New UI for managing multiple extrinsics
+  - Extrinsic data is persisted to the store and remains between app launches
+- Transfer native tokens
+  - New **Send** screen for creating transfer extrinsics for native tokens
+- WalletConnect extrinsic signing
+  - Sign extrinsics via the WalletConnect protocol
+  - New WalletConnect signing UI
+- Backup extrinsics data
+- Other UI changes
+
+#### Next Release
+
+The next release of Polkadot Live will likely focus on UX improvements and implementing extrinsic signing with Ledger devices. This includes:
+
+- Making windows resizable and fully responsive
+- Enhancements to the OpenGov UIs and underlying OpenGov architecture
+- Design iterations on UI components
+
+### Extrinsics Architecture Enhancements
+
+This release enables users to create, manage and sign multiple extrinsics through the **Extrinsics** window.
+
+#### Extrinsics Window Summary
+
+- A unified interface for managing extrinsics exposed by the application.
+- Sign and submit extrinsics to their appropriate blockchain network.
+- Extrinsics are verified before signing takes place to make sure they are still valid and can be submitted.
+- Extrinsics are added when the user interacts with the application, such as preparing a token transfer on the **Send** screen, or interacting with action buttons on event items.
+- The correct signing interface is displayed based on the signing account's import origin.
+- Sign extrinsics via the Polkadot Vault application or WalletConnect protocol.
+- List all extrinsics or filter the list based on the signing account.
+
+#### Extrinsics Window UI
+
+<Img url="/img/releases/0-6-2-alpha/extrinsics-01.jpg" maxHeight="375px" />
+
+##### 1. Account Filter
+
+All added extrinsic items are displayed by default. It is possible to filter extrinsic items and list only the ones that are associated with a signing account through this select box.
+
+##### 2. Manage Extrinsics
+
+Extrinsic items are listed as clickable accordion panels which expand with more information regarding the extrinsic when clicked. Each panel presents a title, submission status, signing account, category and creation timestamp. Hovering over each icon will present this information in a tooltip.
+
+##### 3. Dropdown Menu
+
+Click the far right three-dotted icon to display a dropdown menu with **Sign** and **Delete** options for the extrinsic item in question.
+
+<Img url="/img/releases/0-6-2-alpha/extrinsics-02.jpg" maxHeight="375px" />
+
+More information about the extrinsic in question is displayed when its panel is clicked. For example, a transfer extrinsic will display both the sender & recipient account names and addresses, the estimated fee for submitting the extrinsic, and other important information related to the transaction. A **Sign** button will allow the extrinsic to be signed and submitted to its corresponding blockchain network.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [chore: tx component cleanup #798](https://github.com/polkadot-live/polkadot-live-app/pull/798)
+  -  [feat: extrinsics architecture enhancements #800](https://github.com/polkadot-live/polkadot-live-app/pull/800)
+      - [chore: event action type refactors #799](https://github.com/polkadot-live/polkadot-live-app/pull/799)
+      - [feat: initial extrinsic collections architecture #801](https://github.com/polkadot-live/polkadot-live-app/pull/801)
+      - [feat: extrinsics accordion #802](https://github.com/polkadot-live/polkadot-live-app/pull/802)
+      - [feat: extrinsic item dropdown menu #803](https://github.com/polkadot-live/polkadot-live-app/pull/803)
+      - [feat: extrinsics cog menu item #804](https://github.com/polkadot-live/polkadot-live-app/pull/804)
+      - [feat: extrinsics signer select filter #805](https://github.com/polkadot-live/polkadot-live-app/pull/805)
+      - [feat: extrinsics window messaging #806](https://github.com/polkadot-live/polkadot-live-app/pull/806)
+      - [fix: extrinsics selected account filter #807](https://github.com/polkadot-live/polkadot-live-app/pull/807)
+      - [feat: update extrinsics cached account names #808](https://github.com/polkadot-live/polkadot-live-app/pull/808)
+      - [chore: extrinsic item ui iteration #809](https://github.com/polkadot-live/polkadot-live-app/pull/809)
+      - [chore: synchronous extrinsic processing #810](https://github.com/polkadot-live/polkadot-live-app/pull/810)
+      - [chore: extrinsics flow iteration #811](https://github.com/polkadot-live/polkadot-live-app/pull/811)
+      - [chore: extrinsics submission flow iteration #812](https://github.com/polkadot-live/polkadot-live-app/pull/812)
+      - [chore: extrinsics code cleanup #813](https://github.com/polkadot-live/polkadot-live-app/pull/813)
+  -  [feat: persisted extrinsics #818](https://github.com/polkadot-live/polkadot-live-app/pull/818)
+      - [feat: persist + remove extrinsics from store #817](https://github.com/polkadot-live/polkadot-live-app/pull/817)
+      - [feat: fetch stored extrinsics #819](https://github.com/polkadot-live/polkadot-live-app/pull/819)
+      - [feat: update persisted extrinsics #820](https://github.com/polkadot-live/polkadot-live-app/pull/820)
+  -  [feat: toggle extrinsics os notifications setting #821](https://github.com/polkadot-live/polkadot-live-app/pull/821)
+  -  [feat: extrinsics order by timestamp #878](https://github.com/polkadot-live/polkadot-live-app/pull/878)
+  -  [chore: extrinsics filter account select box order #881](https://github.com/polkadot-live/polkadot-live-app/pull/881)
+  -  [fix: debugging #882](https://github.com/polkadot-live/polkadot-live-app/pull/882)
+  -  [feat: transfer network amount limits #883](https://github.com/polkadot-live/polkadot-live-app/pull/883)
+</details>
+
+### Transfer Native Tokens
+
+:::note
+
+This alpha release supports native transfers of up to **100** tokens on **Kusama** and **Westend** networks.
+
+:::
+
+:::note
+
+Sender and recipient accounts listed on the **Send** screen are derived from accounts that have been added in the **Accounts** window. Pasting an arbitrary recipient address is on the roadmap and will be implemented in an upcoming version.
+
+:::
+
+A **Send** screen has been added to the main window that enables native token transfers on Kusama and Westend networks.
+
+#### Send Screen Summary
+
+- Prepare a transfer extrinsic to send native tokens (KSM or WND) to a recipient account.
+- Select a **sender account**, **recipient account** and **send amount** before clicking the **Proceed** button.
+- After clicking **Proceed**, a new transfer extrinsic item is added to the **Extrinsics** window ready for signing.
+- A **Summary** panel allows the user to double-check the transfer before proceeding.
+
+#### Send Screen UI
+
+The screenshots below demonstrate preparing a transfer extrinsic on the Westend network:
+
+<div style={{ display: 'flex', gap: '1rem'}}>
+  <Img url="/img/releases/0-6-2-alpha/send-01.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/send-02.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/send-03.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/send-04.jpg" maxHeight="375px" />
+</div>
+
+#### Send Screen Behaviour
+
+- Clickable "next step" arrows will become active when the current step is complete.
+- When clicked, the next section is expanded while others are collapsed.
+- Manually expand any section to display the full UI.
+- A progress bar will dynamically update at the top of the screen as sections are completed.
+- Easily inspect and copy sender & receiver account addresses to the clipboard.
+- When a **sender account** is selected, Polkadot Live will:
+    - Fetch its spendable balance.
+    - Populate the recipient account list based on the sender network.
+- The UI will not allow proceeding with a transfer extrinsic if the send amount is either:
+    - Above the signing account's spendable balance
+    - Over 100 tokens.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [feat: transfer native tokens #824](https://github.com/polkadot-live/polkadot-live-app/pull/824)
+      - [chore: select box ui component #823](https://github.com/polkadot-live/polkadot-live-app/pull/823)
+      - [chore: lift select network config #825](https://github.com/polkadot-live/polkadot-live-app/pull/825)
+      - [feat: send screen ui foundation #826](https://github.com/polkadot-live/polkadot-live-app/pull/826)
+      - [feat: dynamic send screen #839](https://github.com/polkadot-live/polkadot-live-app/pull/839)
+      - [feat: copy address to clipboard #840](https://github.com/polkadot-live/polkadot-live-app/pull/840)
+      - [chore: move tooltip ui component #841](https://github.com/polkadot-live/polkadot-live-app/pull/841)
+      - [chore: copy address button polish #842](https://github.com/polkadot-live/polkadot-live-app/pull/842)
+      - [chore: send screen ux polish #843](https://github.com/polkadot-live/polkadot-live-app/pull/843)
+      - [chore: send screen node interactions #844](https://github.com/polkadot-live/polkadot-live-app/pull/844)
+      - [feat: extrinsics window dynamic items #845](https://github.com/polkadot-live/polkadot-live-app/pull/845)
+      - [chore: ui polish iteration #847](https://github.com/polkadot-live/polkadot-live-app/pull/847)
+      - [chore: refactor card ui components #848](https://github.com/polkadot-live/polkadot-live-app/pull/848)
+      - [chore: improved extrinsic item headers #849](https://github.com/polkadot-live/polkadot-live-app/pull/849)
+</details>
+
+### WalletConnect Extrinsic Signing
+
+This release implements a UI that allows extrinsic signing via the WalletConnect protocol. This UI is displayed in the **Extrinsics** window when an extrinsic item's **Sign** button is clicked, providing the signing account was imported via the WalletConnect. 
+
+#### WalletConnect Signing UI
+
+<div style={{ display: 'flex', gap: '1rem'}}>
+  <Img url="/img/releases/0-6-2-alpha/wallet-connect-01.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/wallet-connect-02.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/wallet-connect-03.jpg" maxHeight="375px" />
+</div>
+
+#### WalletConnect Signing Steps
+
+1. Click an extrinsic item's **Sign** button.<br /><br />
+2. Polkadot Live will determine whether a valid WalletConnect session exists.
+    - A session must have approved the signing account.<br /><br />
+3. **Screenshot 1** - If a WalletConnect session doesn't exist:
+    - Click the **Connect** button to display a WalletConnect QR code.
+    - Scan the QR code and approve the signing account within your wallet to establish a session.<br /><br />
+4. **Screenshot 2** - Polkadot Live will verify the session that was just approved.
+    - The session must have approved the signing account.
+    - If not, an error message is displayed and connecting to a new session is required.<br /><br />
+5. **Screenshot 3** - Click the **Sign** button and do the following in your wallet:
+    - Review the extrinsic and its associated data.
+    - Ensure that the extrinsic data (send amount, claim amount, etc.) and recipient address is correct.
+    - Tap the approval button to submit the extrinsic.<br /><br />
+6. The **Extrinsics** window UI will automatically update as the transaction is submitted and finalized on the blockchain.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [feat: wallet connect extrinsic signing #856](https://github.com/polkadot-live/polkadot-live-app/pull/856)
+      - [chore: dependabot config tweak #855](https://github.com/polkadot-live/polkadot-live-app/pull/855)
+      - [chore: move wallet connect context #857](https://github.com/polkadot-live/polkadot-live-app/pull/857)
+      - [chore: rename wallet connect import context directory #858](https://github.com/polkadot-live/polkadot-live-app/pull/858)
+      - [fix: verify extrinsic on dropdown sign #859](https://github.com/polkadot-live/polkadot-live-app/pull/859)
+      - [feat: wallet connect extrinsic signing core #861](https://github.com/polkadot-live/polkadot-live-app/pull/861)
+</details>
+
+### Backup and Restore Extrinsics Data
+
+The **Export** and **Import** buttons within the **Settings** window now generate and parse a backup file with extrinsic item data.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [feat: backup extrinsics #880](https://github.com/polkadot-live/polkadot-live-app/pull/880)
+</details>
+
+### Other UI Changes
+
+- Cog menu **Extrinsics** item.
+- Radix-ui accordion components applied throughout the application.
+- Radix-ui tooltip components applied on most screens.
+- Titles consistently displayed on screens and windows.
+- **Accounts** screen: "Single" type accordions used for account listings.
+- **Subscriptions** screen: Inactive subscription panels for accounts are automatically collapsed.
+- **Summary** screen: Font tweaks and row-based subscriptions summary.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [chore: ui polish iteration #871](https://github.com/polkadot-live/polkadot-live-app/pull/871)
+      - [chore: extrinsic item ui polish #870](https://github.com/polkadot-live/polkadot-live-app/pull/870)
+      - [chore: summary screen polish #872](https://github.com/polkadot-live/polkadot-live-app/pull/872)
+      - [chore: settings screen polish #873](https://github.com/polkadot-live/polkadot-live-app/pull/873)
+      - [chore: accounts screen polish #874](https://github.com/polkadot-live/polkadot-live-app/pull/874)
+      - [chore: open gov screen polish #875](https://github.com/polkadot-live/polkadot-live-app/pull/875)
+      - [chore: events screen polish #876](https://github.com/polkadot-live/polkadot-live-app/pull/876)
+      - [chore: subscriptions screen polish #877](https://github.com/polkadot-live/polkadot-live-app/pull/877)
+  -  [fix: electron menu #879](https://github.com/polkadot-live/polkadot-live-app/pull/879)
+  -  [chore: show disclaimer on initial launch #885](https://github.com/polkadot-live/polkadot-live-app/pull/885)
+</details>
