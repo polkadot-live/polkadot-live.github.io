@@ -1,18 +1,18 @@
 ---
 sidebar_position: 1
-sidebar_label: 0.6.0-alpha
-description: 0.6.0-alpha release notes.
+sidebar_label: 0.6.2-alpha
+description: 0.6.2-alpha release notes.
 ---
 
 import { Img } from "@site/src/components/Img"
 
-# 0.6.0-alpha
+# 0.6.2-alpha
 
 ## Summary
 
 #### Release
 
-https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.6.0-alpha
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.6.2-alpha
 
 #### Milestone 2 Tracker
 
@@ -21,8 +21,8 @@ View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sX
 #### New Features
 
 - Extrinsics architecture enhancements
-  - New UI for managing muliple extrinsics
-  - Extrinsics are persisted to the store and remain between app launches
+  - New UI for managing multiple extrinsics
+  - Extrinsic data is persisted to the store and remains between app launches
 - Transfer native tokens
   - New **Send** screen for creating transfer extrinsics for native tokens
 - WalletConnect extrinsic signing
@@ -41,7 +41,37 @@ The next release of Polkadot Live will likely focus on UX improvements and imple
 
 ### Extrinsics Architecture Enhancements
 
-TODO
+This release enables users to create, manage and sign multiple extrinsics through the **Extrinsics** window.
+
+#### Extrinsics Window Summary
+
+- A unified interface for managing extrinsics exposed by the application.
+- Sign and submit extrinsics to their appropriate blockchain network.
+- Extrinsics are verified before signing takes place to make sure they are still valid and can be submitted.
+- Extrinsics are added when the user interacts with the application, such as preparing a token transfer on the **Send** screen, or interacting with action buttons on event items.
+- The correct signing interface is displayed based on the signing account's import origin.
+- Sign extrinsics via the Polkadot Vault application or WalletConnect protocol.
+- List all extrinsics or filter the list based on the signing account.
+
+#### Extrinsics Window UI
+
+<Img url="/img/releases/0-6-2-alpha/extrinsics-01.jpg" maxHeight="375px" />
+
+##### 1. Account Filter
+
+All added extrinsic items are displayed by default. It is possible to filter extrinsic items and list only the ones that are associated with a signing account through this select box.
+
+##### 2. Manage Extrinsics
+
+Extrinsic items are listed as clickable accordion panels which expand with more information regarding the extrinsic when clicked. Each panel presents a title, submission status, signing account, category and creation timestamp. Hovering over each icon will present this information in a tooltip.
+
+##### 3. Dropdown Menu
+
+Click the far right three-dotted icon to display a dropdown menu with **Sign** and **Delete** options for the extrinsic item in question.
+
+<Img url="/img/releases/0-6-2-alpha/extrinsics-02.jpg" maxHeight="375px" />
+
+More information about the extrinsic in question is displayed when its panel is clicked. For example, a transfer extrinsic will display both the sender & recipient account names and addresses, the estimated fee for submitting the extrinsic, and other important information related to the transaction. A **Sign** button will allow the extrinsic to be signed and submitted to its corresponding blockchain network.
 
 #### Merged PRs
 
@@ -71,11 +101,58 @@ TODO
   -  [feat: extrinsics order by timestamp #878](https://github.com/polkadot-live/polkadot-live-app/pull/878)
   -  [chore: extrinsics filter account select box order #881](https://github.com/polkadot-live/polkadot-live-app/pull/881)
   -  [fix: debugging #882](https://github.com/polkadot-live/polkadot-live-app/pull/882)
+  -  [feat: transfer network amount limits #883](https://github.com/polkadot-live/polkadot-live-app/pull/883)
 </details>
 
 ### Transfer Native Tokens
 
-TODO
+:::note
+
+This alpha release supports native transfers of up to **100** tokens on **Kusama** and **Westend** networks.
+
+:::
+
+:::note
+
+Sender and recipient accounts listed on the **Send** screen are derived from accounts that have been added in the **Accounts** window. Pasting an arbitrary recipient address is on the roadmap and will be implemented in an upcoming version.
+
+:::
+
+A **Send** screen has been added to the main window that enables native token transfers on Kusama and Westend networks.
+
+#### Send Screen Summary
+
+- Prepare a transfer extrinsic to send native tokens (KSM or WND) to a recipient account.
+- Select a **sender account**, **recipient account** and **send amount** before clicking the **Proceed** button.
+- After clicking **Proceed**, a new transfer extrinsic item is added to the **Extrinsics** window ready for signing.
+- A **Summary** panel allows the user to double-check the transfer before proceeding.
+
+#### Send Screen UI
+
+The screenshots below demonstrate preparing a transfer extrinsic on the Westend network:
+
+<div style={{ display: 'flex', gap: '1rem'}}>
+  <Img url="/img/releases/0-6-2-alpha/send-01.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/send-02.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/send-03.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/send-04.jpg" maxHeight="375px" />
+</div>
+
+#### Send Screen Behaviour
+
+- Clickable "next step" arrows will become active when the current step is complete.
+- When clicked, the next section is expanded while others are collapsed.
+- Manually expand any section to display the full UI.
+- A progress bar will dynamically update at the top of the screen as sections are completed.
+- Easily inspect and copy sender & receiver account addresses to the clipboard.
+- When a **sender account** is selected, Polkadot Live will:
+    - Fetch its spendable balance.
+    - Populate the recipient account list based on the sender network.
+- The UI will not allow proceeding with a transfer extrinsic if the send amount is either:
+    - Below the signing account's spendable balance
+    - Over 100 tokens.
+
+#### Merged PRs
 
 <details>
   <summary>View Merged PRs</summary>
@@ -97,7 +174,34 @@ TODO
 
 ### WalletConnect Extrinsic Signing
 
-TODO
+This release implements a UI that allows extrinsic signing via the WalletConnect protocol. This UI is displayed in the **Extrinsics** window when an extrinsic item's **Sign** button is clicked, providing the signing account was imported via the WalletConnect. 
+
+#### WalletConnect Signing UI
+
+<div style={{ display: 'flex', gap: '1rem'}}>
+  <Img url="/img/releases/0-6-2-alpha/wallet-connect-01.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/wallet-connect-02.jpg" maxHeight="375px" />
+  <Img url="/img/releases/0-6-2-alpha/wallet-connect-03.jpg" maxHeight="375px" />
+</div>
+
+#### WalletConnect Signing Steps
+
+1. Click an extrinsic item's **Sign** button.<br /><br />
+2. Polkadot Live will determine whether a valid WalletConnect session exists.
+    - A session must have approved the signing account.<br /><br />
+3. **Screenshot 1** - If a WalletConnect session doesn't exist:
+    - Click the **Connect** button to display a WalletConnect QR code.
+    - Scan the QR code and approve the signing account within your wallet to establish a session.<br /><br />
+4. **Screenshot 2** - Polkadot Live will verify the session that was just approved.
+    - The session must have approved the signing account.
+    - If not, an error message is displayed and connecting to a new session is required.<br /><br />
+5. **Screenshot 3** - Click the **Sign** button and do the following in your wallet:
+    - Review the extrinsic and its associated data.
+    - Ensure that the extrinsic data (send amount, claim amount, etc.) and recipient address is correct.
+    - Tap the approval button to submit the extrinsic.<br /><br />
+6. The **Extrinsics** window UI will automatically update as the transaction is submitted and finalized on the blockchain.
+
+#### Merged PRs
 
 <details>
   <summary>View Merged PRs</summary>
@@ -109,9 +213,11 @@ TODO
       - [feat: wallet connect extrinsic signing core #861](https://github.com/polkadot-live/polkadot-live-app/pull/861)
 </details>
 
-### Backup Extrinsics Data
+### Backup and Restore Extrinsics Data
 
-TODO
+The **Export** and **Import** buttons within the **Settings** window now generate and parse a backup file with extrinsic item data.
+
+#### Merged PRs
 
 <details>
   <summary>View Merged PRs</summary>
@@ -120,7 +226,14 @@ TODO
 
 ### Other UI Changes
 
-TODO
+- Radix-ui accordion components applied throughout the application.
+- Radix-ui tooltip components applied on most screens.
+- Titles consistently displayed on screens and windows.
+- **Accounts** screen: "Single" type accordions used for account listings.
+- **Subscriptions** screen: Inactive subscription panels for accounts are automatically collapsed.
+- **Summary** screen: Font tweaks and row-based subscriptions summary.
+
+#### Merged PRs
 
 <details>
   <summary>View Merged PRs</summary>
@@ -133,4 +246,5 @@ TODO
       - [chore: events screen polish #876](https://github.com/polkadot-live/polkadot-live-app/pull/876)
       - [chore: subscriptions screen polish #877](https://github.com/polkadot-live/polkadot-live-app/pull/877)
   -  [fix: electron menu #879](https://github.com/polkadot-live/polkadot-live-app/pull/879)
+  -  [chore: show disclaimer on initial launch #885](https://github.com/polkadot-live/polkadot-live-app/pull/885)
 </details>
