@@ -1,0 +1,196 @@
+---
+sidebar_position: 1
+sidebar_label: 0.7.0-alpha
+description: 0.7.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.7.0-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.7.0-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Fully responsive views
+- OpenGov enhancements
+  - List active referenda by track
+  - History tab
+  - Find and filter referenda
+  - Referenda pagination
+- Extrinsics enhancements
+  - Summary dialog
+  - Extrinsics pagination
+  - Filter extrinsics
+- Screen iterations
+  - Main window screen refinements
+  - Send screen recipient dialog
+
+#### Next Release
+
+The next release of Polkadot Live will likely focus on application architecture enhancements and initial system parachain intergration.
+
+### Fully Responsive Views
+
+All views opened within the base window are now **fully responsive**, ensuring the user interface dynamically adapts to changes in window size.
+
+Additionally, a **three-button toggle group** has been introduced on the far left of the tabs row. Each button corresponds to a predefined window size—small, medium, or large. Clicking a button instantly resizes the window to the selected preset.
+
+<Img url="/img/releases/0-7-0-alpha/responsive-01.jpg" maxHeight="80px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: responsive views (#888)](https://github.com/polkadot-live/polkadot-live-app/pull/888)
+      -  [feat: responsive accounts view (#887)](https://github.com/polkadot-live/polkadot-live-app/pull/887)
+      -  [feat: responsive settings view (#889)](https://github.com/polkadot-live/polkadot-live-app/pull/889)
+      -  [feat: responsive extrinsics view (#890)](https://github.com/polkadot-live/polkadot-live-app/pull/890)
+      -  [feat: responsive open gov view (#891)](https://github.com/polkadot-live/polkadot-live-app/pull/891)
+      -  [feat: responsive tabs view (#892)](https://github.com/polkadot-live/polkadot-live-app/pull/892)
+      -  [feat: view footer (#904)](https://github.com/polkadot-live/polkadot-live-app/pull/904)
+      -  [feat: base window resize toggles (#905)](https://github.com/polkadot-live/polkadot-live-app/pull/905)
+</details>
+
+### OpenGov Enhancements
+
+#### List Active Referenda by Track
+
+OpenGov listings are now organized into two tabs: **Active Referenda** and **History**. As the names suggest, the **Active Referenda** tab displays ongoing referenda that are either being voted on or under preparation, while the **History** tab contains all currently ongoing and past referenda.
+
+To refine the list, you can filter referenda by selecting a specific track using the new UI shown in the screenshot below. Tracks without active referenda will be disabled. For convenience, each track also displays their total number of active referenda:
+
+<Img url="/img/releases/0-7-0-alpha/opengov-05.jpg" maxHeight="350px" />
+
+#### History Tab
+
+The **History** tab offers a complete list of both ongoing and past referenda. This enhanced UI allows users to quickly locate a specific referendum by its **ID** or filter referenda based on their **status**.
+
+Each referendum row includes a **dropdown menu** with direct links to OpenGov portals, where detailed information about the referendum can be accessed.
+
+<Img url="/img/releases/0-7-0-alpha/opengov-01.jpg" maxHeight="350px" />
+
+#### Find and Filter Referenda
+
+New controls have been added, enabling you to quickly jump to a specific referendum by searching for its ID. Additionally, you can filter the referenda listing based on status for more precise results. These controls are available under both the **Active Referenda** and **History** tabs.
+
+<Img url="/img/releases/0-7-0-alpha/opengov-02.jpg" maxHeight="120px" />
+
+To locate a referendum, enter the **referendum ID** and either click the **Search** button or press **Enter** to initiate the search.
+
+The search operates within the current listing and respects any applied filters. For example, if a referendum is in the deciding phase but the **Deciding** filter is disabled, it will not appear in the search results.
+
+<Img url="/img/releases/0-7-0-alpha/opengov-04.jpg" maxHeight="274px" />
+
+#### Referenda Pagination
+
+Page buttons have been added to enhance the user experience and ensure referenda metadata is fetched only when needed. Simply click a page number or an arrow to navigate between pages.
+
+<Img url="/img/releases/0-7-0-alpha/opengov-03.jpg" maxHeight="116px" />
+
+#### Other Enhancements
+
+- Referenda rows now display a status badge and feature a dropdown menu with links to OpenGov portals.
+- UI dynamically updates when switching between online and offline modes.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    -  [chore: open gov improvements (#908)](https://github.com/polkadot-live/polkadot-live-app/pull/908)
+        - [chore: open gov home grid iteration (#907)](https://github.com/polkadot-live/polkadot-live-app/pull/907)
+        -  [chore: open gov component refactoring (#909)](https://github.com/polkadot-live/polkadot-live-app/pull/909)
+        -  [chore: offline open gov ui (#910)](https://github.com/polkadot-live/polkadot-live-app/pull/910)
+        -  [chore: referendum row drop down menu (#911)](https://github.com/polkadot-live/polkadot-live-app/pull/911)
+        -  [feat: filter referenda by track (#912)](https://github.com/polkadot-live/polkadot-live-app/pull/912)
+        -  [feat: ongoing referenda iteration (#913)](https://github.com/polkadot-live/polkadot-live-app/pull/913)
+        -  [feat: referenda history (#914)](https://github.com/polkadot-live/polkadot-live-app/pull/914)
+        -  [feat: find referendum dialog (#915)](https://github.com/polkadot-live/polkadot-live-app/pull/915)
+    -  [feat: referenda filters (#921)](https://github.com/polkadot-live/polkadot-live-app/pull/921)
+</details>
+
+### Extrinsics Enhancements
+
+#### Summary Dialog
+
+Clicking an extrinsic item's **Summary** button opens a dialog with detailed transaction information. This button is located next to the item's **Sign** button and within its **dropdown menu**.
+
+The dialog provides key details such as the sending account, extrinsic type, and estimated transaction fee. The displayed information adapts dynamically based on the transaction type.
+
+<Img url="/img/releases/0-7-0-alpha/extrinsics-01.jpg" maxHeight="375px" />
+
+#### Extrinsics Pagination
+
+Page buttons have been added to improve user experience, displaying ten extrinsics per page. This pagination system operates the same way as OpenGov referenda pages.
+
+<Img url="/img/releases/0-7-0-alpha/extrinsics-02.jpg" maxHeight="170px" />
+
+#### Filter Extrinsics
+
+Filter the extrinsics list by toggling status options in the filter dropdown, allowing for easier transaction management.
+
+<Img url="/img/releases/0-7-0-alpha/extrinsics-03.jpg" maxHeight="404px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    -  [chore: extrinsics view improvements (#917)](https://github.com/polkadot-live/polkadot-live-app/pull/917)
+        - [feat: extrinsic summary dialog (#916)](https://github.com/polkadot-live/polkadot-live-app/pull/916)
+        -  [fix: extrinsic item dropdown state (#918)](https://github.com/polkadot-live/polkadot-live-app/pull/918)
+        -  [feat: extrinsic item pagination (#919)](https://github.com/polkadot-live/polkadot-live-app/pull/919)
+        -  [feat: extrinsic items filter (#920)](https://github.com/polkadot-live/polkadot-live-app/pull/920)
+</details>
+
+### Main Window Enhancements
+
+#### Screen Iterations
+
+The main window screens have been refined for a more polished experience:
+
+- <h5 style={{ marginBottom: '0.25rem'}}>Summary</h5>
+   Added buttons for quick access to **Accounts**, **Extrinsics**, **OpenGov**, and **Settings**.<br />
+   Stats are now presented in a consistent row layout.
+- <h5 style={{ marginBottom: '0.25rem'}}>Events</h5>
+   Streamlined event items UI for a more compact display. Links and extrinsic actions are now accessible via a dropdown.
+- <h5 style={{ marginBottom: '0.25rem'}}>Subscriptions</h5>
+  Layout made more compact for consistency across screens.
+- <h5 style={{ marginBottom: '0.25rem'}}>Send</h5>
+  Adjusted top panels and progress bar layout for improved clarity.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-7-0-alpha/main-window-01.jpg" maxHeight="404px" />
+  <Img url="/img/releases/0-7-0-alpha/main-window-04.jpg" maxHeight="404px" />
+  <Img url="/img/releases/0-7-0-alpha/main-window-05.jpg" maxHeight="404px" />
+  <Img url="/img/releases/0-7-0-alpha/main-window-06.jpg" maxHeight="404px" />
+</div>
+
+#### Send Screen Recipient Dialog
+
+The **Send** screen now allows sending native tokens to any arbitrary recipient address. The **Recipient** dialog features an address input field alongside a list of addresses managed by the application. Users can either manually enter an address or select a managed address as the recipient.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-7-0-alpha/main-window-02.jpg" maxHeight="400px" />
+  <Img url="/img/releases/0-7-0-alpha/main-window-03.jpg" maxHeight="400px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+  -  [chore: main window improvements (#923)](https://github.com/polkadot-live/polkadot-live-app/pull/923)
+      -  [chore: summary screen iteration (#922)](https://github.com/polkadot-live/polkadot-live-app/pull/922)
+      -  [chore: events screen tweaks (#924)](https://github.com/polkadot-live/polkadot-live-app/pull/924)
+      -  [chore: subscriptions screen tweaks (#925)](https://github.com/polkadot-live/polkadot-live-app/pull/925)
+  -  [feat: send screen recipient dialog (#926)](https://github.com/polkadot-live/polkadot-live-app/pull/926)
+  -  [chore: send native hook (#927)](https://github.com/polkadot-live/polkadot-live-app/pull/927)
+  -  [chore: dialog component migration (#928)](https://github.com/polkadot-live/polkadot-live-app/pull/928)
+</details>
