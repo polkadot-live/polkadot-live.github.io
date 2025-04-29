@@ -1,0 +1,123 @@
+---
+sidebar_position: 1
+sidebar_label: 0.8.0-alpha
+description: 0.8.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.8.0-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.8.0-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Dedot integration
+- Light client integration
+- Optimizations and bug fixes
+
+#### Next Release
+
+The next release of Polkadot Live will likely focus on system parachain integration, augmenting UIs, and improving UX application wide.
+
+### Dedot Integration
+
+Polkadot Live is now powered by [**Dedot**](https://docs.dedot.dev/), a next-generation JavaScript client for Polkadot and Polkadot SDK-based blockchains. It replaces the legacy Polkadot.js packages.
+
+This migration brings significant improvements to both application performance and developer experience:
+- Fully-typed APIs for seamless on-chain interactions.
+- Smaller bundle size thanks to Dedot’s lightweight footprint.
+- Simple, low-level APIs that make granular tasks — such as transaction construction and signing — straightforward.
+- Support for metadata v15 and the latest protocol features.
+- Fast network connections and noticeably improved application performance.
+- Smoldot light client integration (see below).
+
+Polkadot Live is one of the first large-scale applications to fully integrate Dedot for all chain interactions.
+We look forward to seeing more projects across the ecosystem adopt Dedot, and encourage developers to reference the Polkadot Live codebase for practical examples of how to accomplish specific tasks using Dedot.
+
+Refer to Dedot's comprehensive [documentation portal](https://docs.dedot.dev/) and [Github](https://github.com/dedotdev/dedot) pages for detailed guides, project templates, and support resources.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: dedot integration (#954)](https://github.com/polkadot-live/polkadot-live-app/pull/954)
+      - [feat: dedot api model + controller (#953)](https://github.com/polkadot-live/polkadot-live-app/pull/953)
+      - [feat: dedot chain connections footer ui (#955)](https://github.com/polkadot-live/polkadot-live-app/pull/955)
+      - [chore: open gov dedot migration (#956)](https://github.com/polkadot-live/polkadot-live-app/pull/956)
+      - [chore: dedot extrinsics migration (#957)](https://github.com/polkadot-live/polkadot-live-app/pull/957)
+      - [chore: dedot subscriptions migration (#958)](https://github.com/polkadot-live/polkadot-live-app/pull/958)
+      - [chore: remove polkadot js packages (#959)](https://github.com/polkadot-live/polkadot-live-app/pull/959)
+      - [fix: debugging iteration (#960)](https://github.com/polkadot-live/polkadot-live-app/pull/960)
+    - [chore: readme attributions (#963)](https://github.com/polkadot-live/polkadot-live-app/pull/963)
+</details>
+
+### Light Client Integration
+
+Polkadot Live has leveraged Dedot to integrate [**smoldot**](https://github.com/smol-dot/smoldot), a light client for Polkadot and Substrate-based chains. You are now able to interact with supported blockchain networks in a completely decentralized manner - as the smoldot light client communicates with multiple nodes to stay synced.
+
+To use the smoldot light client instead of connecting to a specific RPC endpoint, simply select the **Light Client** connection option for your target blockchain network. All chain interactions will now be handled with the light client.
+
+Network connections can be managed by expanding the main window's footer:
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-8-0-alpha/light-client-01.jpg" maxHeight="400px" />
+  <Img url="/img/releases/0-8-0-alpha/light-client-02.jpg" maxHeight="400px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: light client integration (#961)](https://github.com/polkadot-live/polkadot-live-app/pull/961)
+</details>
+
+### Optimizations and Bug Fixes
+
+This release includes a range of optimizations, refactorings, and bug fixes across the codebase, improving application performance and robustness.
+
+#### UX
+
+  - Base window hides automatically when all its tabs are closed.
+  - Button to open the base window is removed from the main window's header. 
+  - Networks listed in the main window's footer include a new `Connect` button.
+  - Send screen UI disabled when the app is in offline mode.
+  - The `Show on all workspaces` setting is off by default.
+
+#### Algorithms / Architecture
+
+  - Refactored algorithm for calculating an account's shared API call registry for query-multis.
+  - Refactored algorithms for calculating account nominating exposure and rewards for the last era.
+  - Subscription processing is further modularized with a new post-callback step.
+  - Subscription tasks are correctly sent to the main window when launching in offline mode.
+  - The `bigint` type has replaced `BigNumber` in viable areas of the application.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [chore: polkadot api client improvements (#931)](https://github.com/polkadot-live/polkadot-live-app/pull/931)
+      - [chore: bootstrapping cleanups (#930)](https://github.com/polkadot-live/polkadot-live-app/pull/930)
+      - [fix: api connections state (#932)](https://github.com/polkadot-live/polkadot-live-app/pull/932)
+      - [fix: bootstrapping state (#933)](https://github.com/polkadot-live/polkadot-live-app/pull/933)
+      - [fix: referenda pagination ellipsis (#934)](https://github.com/polkadot-live/polkadot-live-app/pull/934)
+      - [feat: disconnect chain api (#935)](https://github.com/polkadot-live/polkadot-live-app/pull/935)
+      - [feat: api disconnect button tooltips (#946)](https://github.com/polkadot-live/polkadot-live-app/pull/946)
+      - [feat: api timeouts and cleanup (#947)](https://github.com/polkadot-live/polkadot-live-app/pull/947)
+    - [chore: utils restructuring (#949)](https://github.com/polkadot-live/polkadot-live-app/pull/949)
+    - [chore: w3ux bigint migration (#950)](https://github.com/polkadot-live/polkadot-live-app/pull/950)
+    - [feat: ui edge cases (#951)](https://github.com/polkadot-live/polkadot-live-app/pull/951)
+    - [feat: send screen offline mode (#952)](https://github.com/polkadot-live/polkadot-live-app/pull/952)
+    - [fix: batched task query building (#962)](https://github.com/polkadot-live/polkadot-live-app/pull/962)
+    - [chore: base window hide behavior (#964)](https://github.com/polkadot-live/polkadot-live-app/pull/964)
+    - [chore: tweak default settings (#965)](https://github.com/polkadot-live/polkadot-live-app/pull/965)
+    - [fix: westend balances (#970)](https://github.com/polkadot-live/polkadot-live-app/pull/970)
+</details>
