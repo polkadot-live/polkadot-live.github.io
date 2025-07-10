@@ -1,0 +1,251 @@
+---
+sidebar_position: 1
+sidebar_label: 0.9.0-alpha
+description: 0.9.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.9.0-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.9.0-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- System parachain integration
+- Manage & rename accounts dialog
+- User-friendly default account names
+- Notable UI changes
+- New monorepo packages
+- Architecture improvements
+
+#### Next Release
+
+The next release of Polkadot Live will likely focus on architecture improvements, augmenting UI features, and improving UX.
+
+### System Parachain Integration
+
+The latest update to Polkadot Live introduces comprehensive system chain integration, enabling seamless management of accounts across supported relay and system chains. When a user imports an address from any supported network, Polkadot Live will automatically derive the corresponding public key and generate encoded addresses for all relevant relay and system chains. This includes full support for the Polkadot, Kusama, and Westend ecosystems—specifically their **Relay Chains**, **Asset Hubs**, and **People chains**.
+
+Users can view and manage chain connections directly from the main window footer. Chain accounts can be added individually to the main window, where they are automatically grouped by their associated chain for better organization. Each account—both the primary and chain-specific—can be easily renamed for clarity and convenience.
+
+Additionally, all imported accounts can be managed through the dedicated **Accounts** view, providing users with clear oversight and flexible control over their cross-chain identities.
+
+The screenshots below illustrate the supported chains as displayed in the main window footer, along with accounts neatly organized by their respective chains in the main window. The following sections outline the new account management features introduced in this release.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-9-0-alpha/system-chains-01.jpg" maxHeight="500px" />
+  <Img url="/img/releases/0-9-0-alpha/system-chains-02.jpg" maxHeight="500px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [fix: westend spendable balance #981](https://github.com/polkadot-live/polkadot-live-app/pull/981)
+    - [feat: westend asset hub integration #982](https://github.com/polkadot-live/polkadot-live-app/pull/982)
+    - [feat: generic accounts #997](https://github.com/polkadot-live/polkadot-live-app/pull/997)
+      - [chore: generic accounts foundation #996](https://github.com/polkadot-live/polkadot-live-app/pull/996)
+      - [feat: initial generic account listings #998](https://github.com/polkadot-live/polkadot-live-app/pull/998)
+      - [chore: address listing ui iteration #1002](https://github.com/polkadot-live/polkadot-live-app/pull/1002)
+      - [fix: send screen #1003](https://github.com/polkadot-live/polkadot-live-app/pull/1003)
+      - [fix: summary screen #1004](https://github.com/polkadot-live/polkadot-live-app/pull/1004)
+      - [chore: remove deprecated code + cleanup #1005](https://github.com/polkadot-live/polkadot-live-app/pull/1005)
+    - [feat: system chain integration foundation #1007](https://github.com/polkadot-live/polkadot-live-app/pull/1007)
+    - [feat: system chain additions (#1009)](https://github.com/polkadot-live/polkadot-live-app/pull/1009)
+      - [feat: initial kusama asset hub integration #1008](https://github.com/polkadot-live/polkadot-live-app/pull/1008)
+      - [feat: initial polkadot people integration #1010](https://github.com/polkadot-live/polkadot-live-app/pull/1010)
+      - [feat: initial kusama people integration #1011](https://github.com/polkadot-live/polkadot-live-app/pull/1011)
+      - [feat: initial westend people integration #1012](https://github.com/polkadot-live/polkadot-live-app/pull/1012)
+    - [chore: readme attributions (#963)](https://github.com/polkadot-live/polkadot-live-app/pull/963)
+</details>
+
+### Manage & Rename Accounts Dialog
+
+When importing an account, a new entry is added to the corresponding import screen with a default account name. The following UI is displayed upon import:
+
+<Img url="/img/releases/0-9-0-alpha/manage-accounts-01.jpg" maxHeight="375px" />
+
+##### 1. Account Heading
+
+Displays the account name along with buttons for **bulk renaming** the account and **managing** chain accounts.
+
+##### 2. Delete Account
+
+The **Delete Account** button permanently removes the account and any active subscriptions tied to it from the application. Once deleted, the account will need to be re-imported to be added again.
+
+##### 3. Bookmarked Chain Accounts
+
+This list displays any bookmarked chain accounts linked to the imported public key. Upon initial import, this list will be empty.
+
+#### Manage Accounts
+
+The following features are available for efficient management of chain accounts:
+
+<Img url="/img/releases/0-9-0-alpha/manage-accounts-02.jpg" maxHeight="500px" />
+
+##### 1. Toggle Bookmark Buttons
+Toggles displaying bookmark buttons next to each chain account entry. Use the bookmark buttons to quickly add or remove chain accounts from the bookmark list for easy access.
+
+##### 2. Main Account Name
+The "parent" name that represents the overall account, providing clarity and organization.
+
+##### 3. Truncated Public Key
+Displays a shortened version of the account's public key, which is utilized to derive addresses for the associated chain accounts.
+
+##### 4. Add or Remove Subscriptions
+Adds or removes the selected chain account in the main window's account subscriptions screen, enabling streamlined management of account subscriptions.
+
+##### 5. Account Drop Down Menu
+Access a menu that allows users to quickly toggle bookmarks, rename the account, view its full encoded address, or open it in a block explorer.
+
+##### 6. Quick-Access Address Options
+Buttons for one-click access to copy the encoded address to the clipboard or view the full address in a dedicated dialog window.
+
+##### 7. Close Button
+
+Close the dialog.
+
+#### Bookmark Accounts
+
+To manage bookmarked chain accounts, refer to the screenshots below for a visual guide.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-9-0-alpha/manage-accounts-03.jpg" maxHeight="600px" />
+  <Img url="/img/releases/0-9-0-alpha/manage-accounts-04.jpg" maxHeight="600px" />
+</div>
+
+When you click the bookmark button next to the main account name, a quick-access bookmark button will appear next to each associated chain account. This feature allows you to toggle bookmarks with a single click for efficient management.
+
+Alternatively, you can also use the account dropdown menu, which includes either **Bookmark** or **Remove Bookmark** options. Both methods achieve the same outcome, providing flexibility in how bookmarks are managed.
+
+Once an account is bookmarked, it will be displayed in the bookmark list. For bookmarked chain accounts, the same UI options are available as in the manage dialog, including the ability to add or remove subscriptions and manage the account through the dropdown menu.
+
+#### Bulk Rename Accounts
+
+The rename accounts dialog allows users to quickly and efficiently manage both the primary account name and individual chain account names.
+
+<Img url="/img/releases/0-9-0-alpha/manage-accounts-05.jpg" maxHeight="600px" />
+
+##### 1. Account Name Field
+
+Click in the name field and input a new account name.
+
+##### 2. Reset Button
+
+Click the reset button to cancel any changes to the name and restore the original value.
+
+##### 3. Apply Button
+
+Click the apply button to commit the new name and apply it throughout the app.
+
+##### 4. Close Button
+
+Close the dialog without making any changes.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: import view account rename dialog #1000](https://github.com/polkadot-live/polkadot-live-app/pull/1000)
+    - [feat: encoded accounts renaming #1001](https://github.com/polkadot-live/polkadot-live-app/pull/1001)
+    - [feat: manage accounts dialog #1013](https://github.com/polkadot-live/polkadot-live-app/pull/1013)
+    - [chore: account dialogs ui iteration #1014](https://github.com/polkadot-live/polkadot-live-app/pull/1014)
+    - [feat: individual account rename dialog #1015](https://github.com/polkadot-live/polkadot-live-app/pull/1015)
+    - [chore: generic account dialogs #1016](https://github.com/polkadot-live/polkadot-live-app/pull/1016)
+    - [chore: bookmarked accounts ui refinement #1017](https://github.com/polkadot-live/polkadot-live-app/pull/1017)
+</details>
+
+### User-Friendly Default Account Names
+
+When importing an account for the first time, Polkadot Live assigns user-friendly and predictable names to the accounts. The primary account name is formatted as `Account {n}`, where `{n}` represents a unique number.
+
+Polkadot Live calculates the current number of imported accounts, increments this total by one, and assigns it to the account name. If the generated name is still not unique, the number is incremented further until it becomes unique.
+
+Derived chain accounts are named in the format `Account {n}-{Chain Name}`. However, it's important to note that the current implementation does not yet ensure uniqueness for derived chain account names.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: friendly default account names #1018](https://github.com/polkadot-live/polkadot-live-app/pull/1018)
+    - [fix: debugging #1027](https://github.com/polkadot-live/polkadot-live-app/pull/1027)
+</details>
+
+### Notable UI Changes
+
+In this version, the following additional UI changes have been implemented:
+
+##### 1. OpenGov Subscriptions Screen
+
+A new navigation button and screen have been added for **OpenGov subscriptions**. This means that both account and OpenGov subscriptions are managed within separate screens within the main window.
+
+##### 2. Import Read-Only Account Dialog
+
+A dedicated dialog has been introduced to allow users to input an address and import a read-only account.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: read only accounts import dialog #999](https://github.com/polkadot-live/polkadot-live-app/pull/999)
+    - [feat: open gov subscriptions screen #1025](https://github.com/polkadot-live/polkadot-live-app/pull/1025)
+</details>
+
+### New Monorepo Packages
+
+- `core`<br />
+  Core application logic has been moved to a new monorepo package called `core`. This change separates core logic from the UI codebase, improving developer experience and simplifying future updates and maintenance.
+
+- `consts`<br />
+  Constant data is now stored within a package named `consts`. This makes it easier to modify and extend data that governs key aspects of the application, such as configuration settings, subscriptions, and chain-related information.
+
+The following screenshot illustrates the monorepo package structure as of this version:
+
+<Img url="/img/releases/0-9-0-alpha/package-graph.jpg" maxHeight="225px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [chore: consts package #979](https://github.com/polkadot-live/polkadot-live-app/pull/979)
+    - [chore: core package #980](https://github.com/polkadot-live/polkadot-live-app/pull/980)
+</details>
+
+### Architecture improvements
+
+Some notable architecture improvements in this release include:
+
+- A new **Dedot util** is utilized for instantiating the smoldot client.
+- Constant data has been separated from the UI codebase and moved to the `consts` package, improving modularity.
+- Core application logic has been moved out of the UI codebase and into the `core` package, streamlining structure for easier development.
+- **Keyed caching** has been implemented for application settings and shared state, optimizing performance and reducing boilerplate code.
+- Refactors of **account syncing** and the **subscription controller** codebases for better performance and maintainability.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [fix: subscriptions carousel scroll #975](https://github.com/polkadot-live/polkadot-live-app/pull/975)
+    - [chore: types cleanup #977](https://github.com/polkadot-live/polkadot-live-app/pull/977)
+    - [chore: renderer utils cleanup #978](https://github.com/polkadot-live/polkadot-live-app/pull/978)
+    - [chore: contexts batch exports #984](https://github.com/polkadot-live/polkadot-live-app/pull/984)
+    - [chore: update copyright year #985](https://github.com/polkadot-live/polkadot-live-app/pull/985)
+    - [chore: remove deprecated ui components #986](https://github.com/polkadot-live/polkadot-live-app/pull/986)
+    - [chore: refactor account syncing utils #987](https://github.com/polkadot-live/polkadot-live-app/pull/987)
+    - [chore: shared state cache #988](https://github.com/polkadot-live/polkadot-live-app/pull/988)
+    - [chore: refactor settings caching #989](https://github.com/polkadot-live/polkadot-live-app/pull/989)
+    - [chore: shared state theme setting #994](https://github.com/polkadot-live/polkadot-live-app/pull/994)
+    - [chore: core subscription refactors #995](https://github.com/polkadot-live/polkadot-live-app/pull/995)
+    - [chore: use dedot util for smoldot client #1023](https://github.com/polkadot-live/polkadot-live-app/pull/1023)
+    - [chore: account component cleanup #1024](https://github.com/polkadot-live/polkadot-live-app/pull/1024)
+    - [fix: wallet connect namespace #1026](https://github.com/polkadot-live/polkadot-live-app/pull/1026)
+</details>
