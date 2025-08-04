@@ -1,0 +1,128 @@
+---
+sidebar_position: 1
+sidebar_label: 0.10.0-alpha
+description: 0.10.0-alpha release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.10.0-alpha
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.10.0-alpha
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Extrinsic signing with Ledger devices
+- Footer networks UI
+- Paseo chains integration
+- Bug fixes and improvements
+
+#### Next Release
+
+The next release of Polkadot Live will introduce a beta version featuring enhancements to both the architecture and user experience.
+
+### Extrinsic Signing with Ledger Devices
+
+- **Integration with Dedot APIs**<br />
+  All features now powered by Dedot APIs, enabling more robust and scalable backend interactions.
+
+- **Ledger Device Support Enhancements**<br />
+  Implemented a dedicated Ledger task in the main process for secure transaction signing.<br />
+  Introduced a new overlay UI in the Extrinsics window for a seamless Ledger signing experience.
+
+- **New Sender Selection Dialog**<br />
+  Redesigned interface for selecting the sender account, enhancing clarity and usability.
+
+- **Refactored Send Screen Architecture**<br />
+  Streamlined internal structure for improved performance and maintainability.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-10-0-alpha/ledger-sign-01.jpg" maxHeight="325px" />
+  <Img url="/img/releases/0-10-0-alpha/ledger-sign-02.jpg" maxHeight="325px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: ledger extrinsics signing #1036](https://github.com/polkadot-live/polkadot-live-app/pull/1036)
+</details>
+
+### Footer Networks UI
+
+- **Accordion-Based Network UI**<br />
+  New accordion interface for expanding and collapsing network lists, improving navigation and clarity.
+
+- **Ecosystem-Based Chain Organization**<br />
+  Chains are now grouped by ecosystem, including Polkadot, Kusama, Paseo, and Westend for easier discovery.
+
+- **Active Network Management**<br />
+  View connected networks and manage connections directly from the interface.
+
+- **Scrollable Interface Enhancements**<br />
+  UI made scrollable to accommodate longer network lists and improve usability on smaller screens.
+
+<Img url="/img/releases/0-10-0-alpha/footer-networks-01.jpg" maxHeight="525px" />
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: footer interactive networks ui #1031](https://github.com/polkadot-live/polkadot-live-app/pull/1031)
+</details>
+
+### Paseo Chains Integration
+
+- **Initial Paseo Network Integration**<br />
+  Added support for Paseo Relay, Paseo Asset Hub, and Paseo People chains.
+
+- **RPC Connectivity**<br />
+  Enabled connection to Paseo chains via RPC endpoints, ensuring reliable access to network data.
+
+- **Chain-Specific Address Handling**<br />
+  An encoded address is automatically provided for each supported Paseo chain during account import.
+
+- **Real-Time Balance Subscriptions**<br />
+  Implemented live balance subscriptions for accounts across all supported Paseo chains.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat: initial paseo chains integration #1033](https://github.com/polkadot-live/polkadot-live-app/pull/1033)
+</details>
+
+### Bug Fixes and Improvements
+
+- **Balance Calculation Fixes**<br />
+  Corrected free and spendable balance calculations to align with the recent runtime balances migration.
+
+- **Relay Chain ID Renaming**<br />
+  Updated relay chain identifiers for improved clarity and consistency across the UI.
+
+- **WalletConnect Codebase Refactor**<br />
+  Refactored the WalletConnect implementation for a cleaner architecture and enhanced user experience.
+
+- **Ledger Integration Improvements**
+  - Resolved compatibility issues between Ledger-related packages.
+  - Verified connected Ledger devices using vendor and product IDs.
+  - Enabled retrieval of model-specific metadata from connected Ledger devices.
+  - Enhanced device detection architecture with more robust error handling and clearer UI feedback.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [chore: rename relay chain ids #1032](https://github.com/polkadot-live/polkadot-live-app/pull/1032)
+    - [fix: ledger codebase #1034](https://github.com/polkadot-live/polkadot-live-app/pull/1034)
+    - [fix: balances #1035](https://github.com/polkadot-live/polkadot-live-app/pull/1035)
+    - [chore: wallet connect refactors #1037](https://github.com/polkadot-live/polkadot-live-app/pull/1037)
+</details>
