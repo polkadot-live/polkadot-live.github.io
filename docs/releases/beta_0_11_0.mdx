@@ -1,0 +1,148 @@
+---
+sidebar_position: 1
+sidebar_label: 0.11.0-beta
+description: 0.11.0-beta release notes.
+---
+
+import { Img } from "@site/src/components/Img"
+
+# 0.11.0-beta
+
+## Summary
+
+#### Release
+
+https://github.com/polkadot-live/polkadot-live-app/releases/tag/v0.11.0-beta
+
+#### Milestone 2 Tracker
+
+View this [Milestone 2 Tracker](https://docs.google.com/spreadsheets/d/1OnDXC8sXcX6DqMHZxLTVo6zQuEkEuZgBTIZHfpDoXLg/edit?usp=sharing) document to see progress on the current roadmap.
+
+#### New Features
+
+- Polished light theme
+- UI additions
+- API handling enhancements
+- Paseo Asset Hub migration
+- Bug fixes and optimizations
+
+#### Next Release
+
+The next release of Polkadot Live will focus on further stabilizing the application architecture and delivering UI enhancements.
+
+### Polished Light Theme
+
+The light theme has been refined in this release, with visual polish and improved consistency across the app. New theme variables have been introduced to support better styling and customization, and several visual bugs affecting the light theme were identified and fixed during the process.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [chore(ui): polish light theme #1067](https://github.com/polkadot-live/polkadot-live-app/pull/1067)
+</details>
+
+### UI Additions
+
+#### Extrinsics
+
+- **Signing Method Display in Transaction Summary**<br />
+  Transaction summaries now display the signing method—whether via Ledger, Vault, or WalletConnect.
+
+- **Improved WalletConnect Signing Feedback**<br />
+  The WalletConnect signing modal now displays consistent feedback styled similarly to the Ledger signing modal, with improved behavior and clearer messaging to guide the user through the signing process.
+
+- **Explorer Links Enabled for Finalized Extrinsics**<br />
+  Once a transaction is finalized, a block explorer link becomes available in the extrinsic's dropdown menu, allowing users to view detailed transaction information in the web browser.
+
+- **Deletion Confirmation for Extrinsics**<br />
+  A confirmation dialog now appears when deleting extrinsics, ensuring users intentionally confirm before removal.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-11-0-beta/ui-extrinsics-01.jpg" maxHeight="325px" />
+  <Img url="/img/releases/0-11-0-beta/ui-extrinsics-02.jpg" maxHeight="325px" />
+  <Img url="/img/releases/0-11-0-beta/ui-extrinsics-03.jpg" maxHeight="325px" />
+</div>
+
+#### Misc
+
+- **Unified Offline Status Banner**<br />
+  An offline banner is now displayed at the top of the screen when the application is not connected to the network, providing a clear status indicator across all screens.
+
+- **Account Source Badges in Send Screen Selector**<br />
+  An account source badge is now shown for each account in the send screen's account selector, providing clear context when choosing sender and recipient accounts.
+
+- **Treasury Balances from Asset Hub Chains**<br />
+  Treasury balances from the Polkadot and Kusama Asset Hub chains are now displayed in the treasury overview UI.
+
+<div style={{ display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+  <Img url="/img/releases/0-11-0-beta/ui-misc-01.jpg" maxHeight="325px" />
+  <Img url="/img/releases/0-11-0-beta/ui-misc-02.jpg" maxHeight="325px" />
+  <Img url="/img/releases/0-11-0-beta/ui-misc-03.jpg" maxHeight="325px" />
+</div>
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [feat(ui): display sign method in transaction summary #1047](https://github.com/polkadot-live/polkadot-live-app/pull/1047)
+    - [feat(extrinsics): store and track transaction hash #1049](https://github.com/polkadot-live/polkadot-live-app/pull/1049)
+    - [feat(ui): integrate block explorer link for extrinsics #1050](https://github.com/polkadot-live/polkadot-live-app/pull/1050)
+    - [chore(ui): remove referenda more overlay #1052](https://github.com/polkadot-live/polkadot-live-app/pull/1052)
+    - [feat(ui): offline banner #1053](https://github.com/polkadot-live/polkadot-live-app/pull/1053)
+    - [feat(ui): wallet connect signing feedback #1054](https://github.com/polkadot-live/polkadot-live-app/pull/1054)
+    - [feat(ui): display source in account selector dialog #1055](https://github.com/polkadot-live/polkadot-live-app/pull/1055)
+    - [fix(ui): styling adjustments #1056](https://github.com/polkadot-live/polkadot-live-app/pull/1056)
+    - [feat(ui): confirm dialog on extrinsic delete #1058](https://github.com/polkadot-live/polkadot-live-app/pull/1058)
+    - [feat(ui): show address dialog for fetched ledger and wallet connect accounts #1059](https://github.com/polkadot-live/polkadot-live-app/pull/1059)
+    - [feat(ui): add network icon to events #1060](https://github.com/polkadot-live/polkadot-live-app/pull/1060)
+    - [feat(ui): polkadot asset hub treasury balances #1064](https://github.com/polkadot-live/polkadot-live-app/pull/1064)
+    - [feat(ui): kusama asset hub treasury balances #1065](https://github.com/polkadot-live/polkadot-live-app/pull/1065)
+</details>
+
+### API Handling Enhancements
+
+This release improves how the application handles API connection failures, ensuring better stability and responsiveness. This includes smarter timeout handling, early termination of failed requests, and clearer UI feedback. Users can continue working smoothly and easily retry connections when needed.
+
+- Failed API connection attempts timeout gracefully, allowing the application to remain responsive and process other tasks.
+- An `AbortController` mechanism is used to terminate failed connection attempts early within asynchronous functions.
+- Main window UIs reflect the connection state for individual networks and update appropriately when a connection attempt fails.
+- After a successful connection, account state is automatically synced with the network and relevant subscriptions are initialized.
+- Users can manually retry a failed network connection using its **Connect** button in the footer.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [chore(core): enhance api fault tolerance #1061](https://github.com/polkadot-live/polkadot-live-app/pull/1061)
+    - [chore(core): move error classes to core #1062](https://github.com/polkadot-live/polkadot-live-app/pull/1062)
+</details>
+
+### Paseo Asset Hub Migration
+
+The Paseo testnet has completed its Asset Hub migration, moving balances, staking, and governance functionality from the Paseo Relay Chain to the Paseo Asset Hub system chain.
+
+This release updates the application to subscribe to the Paseo Asset Hub instead of the Paseo Relay Chain, ensuring staking and balance subscriptions continue to function correctly.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [chore(core): paseo asset hub migration #1073](https://github.com/polkadot-live/polkadot-live-app/pull/1073)
+</details>
+
+### Bug Fixes and Optimizations
+
+This release includes a range of bug fixes across the application, addressing issues in the UI, core logic, event handling, and analytics. These improvements enhance overall stability, ensure more reliable behavior, and provide a smoother user experience.
+
+#### Merged PRs
+
+<details>
+  <summary>View Merged PRs</summary>
+    - [fix(ui): normalise top and bottom spacing around dialogs #1048](https://github.com/polkadot-live/polkadot-live-app/pull/1048)
+    - [fix(core): online status and subscriptions checking in intervals controller #1057](https://github.com/polkadot-live/polkadot-live-app/pull/1057)
+    - [fix(events): staking dashboard urls #1068](https://github.com/polkadot-live/polkadot-live-app/pull/1068)
+    - [fix(analytics): debugging #1069](https://github.com/polkadot-live/polkadot-live-app/pull/1069)
+    - [fix(core): account name syncing #1070](https://github.com/polkadot-live/polkadot-live-app/pull/1070)
+    - [fix(dialog): generic account state on account rename #1071](https://github.com/polkadot-live/polkadot-live-app/pull/1071)
+    - [fix(ui): import button spinner position #1072](https://github.com/polkadot-live/polkadot-live-app/pull/1072)
+</details>
