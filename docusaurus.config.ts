@@ -68,6 +68,13 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+     content:
+        '&#9888;&#65039; The documentation for this project has moved to <a href="https://polkadot-live.app" target="_blank" rel="noopener noreferrer">polkadot-live.app</a>.',
+      backgroundColor: '#d0d0d0',
+      textColor: '#091E42',
+      isCloseable: false,
+    },
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
@@ -97,52 +104,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Home',
-              to: '/',
-            },
-          ],
-        },
-        {
-          title: 'GitHub',
-          items: [
-            {
-              label: 'App',
-              href: 'https://github.com/polkadot-live/polkadot-live-app',
-            },
-            {
-              label: 'Docs',
-              href: 'https://github.com/polkadot-live/polkadot-live.github.io',
-            },
-            {
-              label: 'Organization',
-              href: 'https://github.com/polkadot-live',
-            },
-          ],
-        },
-        {
-          title: 'Ecosystem',
-          items: [
-            {
-              label: 'Polkadot Cloud',
-              href: 'https://polkadot.cloud/',
-            },
-            {
-              label: 'Staking Dashboard',
-              href: 'https://staking.polkadot.cloud',
-            },
-            {
-              label: 'w3ux Library',
-              href: 'https://github.com/w3ux/w3ux-library',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Polkadot Live Authors & Contributors.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Polkadot Live Authors & Contributors`,
     },
     prism: {
       theme: prismThemes.github,
